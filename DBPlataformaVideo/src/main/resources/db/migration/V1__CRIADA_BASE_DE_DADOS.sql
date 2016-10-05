@@ -1,5 +1,7 @@
 CREATE SCHEMA aplicacao;
 
+CREATE SEQUENCE aplicacao.default_sequence;
+
 --Criando Tabelas
 CREATE TABLE aplicacao.usuario
 (
