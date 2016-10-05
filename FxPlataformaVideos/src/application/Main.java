@@ -1,11 +1,15 @@
 package application;
 
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import application.model.Perfil;
+import arq.dominio.hibernate.Database;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-	
-
 
 public class Main extends Application {
 	@Override
@@ -23,6 +27,14 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
+		Database database = Database.getInstance();
+		Session session = database.getSession();
+		Transaction beginTransaction = session.beginTransaction();
+		Perfil perfil = new Perfil();
+		perfil.setNome("Teste");
+		session.save(perfil);
+		beginTransaction.commit();
+		session.close();
 		launch(args);
 	}
 }
