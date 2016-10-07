@@ -15,8 +15,9 @@ public class Database {
 	}
 
 	public static Database getInstance(){
-	return singleton;
+		return singleton;
 	}
+	
 	public Session getSession(){ 
 		if( sf == null){
 			sf = new Configuration().configure("/resources/hibernate.cfg.xml").buildSessionFactory();

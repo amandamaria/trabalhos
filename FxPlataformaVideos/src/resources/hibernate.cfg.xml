@@ -16,5 +16,11 @@
 		<property name="hbm2ddl.auto">none</property>
 		
 		<mapping class="application.model.Perfil"/>
+		<mapping class="application.model.Genero"/>
+		<mapping class="application.model.Video"/>
+		<mapping class="application.model.Usuario"/>
+		<mapping class="application.model.Serie"/>
+		<mapping class="application.model.Filme"/>
+		
   </session-factory>
 </hibernate-configuration>
