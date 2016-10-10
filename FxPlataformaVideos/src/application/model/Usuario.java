@@ -32,8 +32,7 @@ public class Usuario extends AbstractEntity {
 	
 	private String senha;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	private Perfil perfil;
+	private boolean administrador;
 	
 	@Column(name="data_nascimento")
 	private Date dataNascimento;
@@ -48,7 +47,11 @@ public class Usuario extends AbstractEntity {
 	}
 	
 	public boolean isAdministrador() {
-		return this.perfil.getId() == Perfil.ID_PERFIL_ADMINISTRADOR;
+		return administrador;
+	}
+	
+	public boolean setAdministrador(boolean administrador) {
+		return this.administrador = administrador;
 	}
 
 	public String getNome() {

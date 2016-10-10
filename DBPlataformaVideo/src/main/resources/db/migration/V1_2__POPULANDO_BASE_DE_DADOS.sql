@@ -1,0 +1,1 @@
+insert into aplicacao.usuario(id, nome, sobrenome, senha, email, data_nascimento, administrador) values(-1, 'Administrador', 'do Sistema', '123', 'admin@uflix.com.br', '1995-01-01', true);

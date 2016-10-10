@@ -6,29 +6,18 @@ CREATE SEQUENCE aplicacao.default_sequence;
 CREATE TABLE aplicacao.usuario
 (
    id bigint NOT NULL, 
-   nome character varying(12), 
+   nome character varying(20), 
    sobrenome character varying(30), 
    senha character varying(10), 
    email character varying(30), 
-   data_nascimento date
+   data_nascimento date,
+   administrador boolean, 
+   CONSTRAINT pk_usuario PRIMARY KEY (id)
 ) 
 WITH (
   OIDS = FALSE
 );
-
-ALTER TABLE aplicacao.usuario
-  ADD CONSTRAINT pk_usuario PRIMARY KEY (id);
   
-CREATE TABLE aplicacao.perfil
-(
-   id bigint NOT NULL, 
-   nome text, 
-   CONSTRAINT pk_perfil PRIMARY KEY (id)
-) 
-WITH (
-  OIDS = FALSE
-);
-
 CREATE TABLE aplicacao.video
 (
    id bigint NOT NULL, 
@@ -37,6 +26,7 @@ CREATE TABLE aplicacao.video
    classificacao_etaria integer, 
    midia_video bit, 
    ano integer, 
+   nome_diretor character varying(30),
    nome_ator_principal character varying(60), 
    CONSTRAINT pk_video PRIMARY KEY (id)
 ) 
@@ -82,8 +72,7 @@ WITH (
 CREATE TABLE aplicacao.avaliacao_video
 (
    id_usuario bigint, 
-   id_filme bigint, 
-   nota integer, 
+   id_filme bigint,
    CONSTRAINT pk_avaliacao_filme PRIMARY KEY (id_filme, id_usuario), 
    CONSTRAINT fk_filme_avaliacao_filme FOREIGN KEY (id_filme) REFERENCES aplicacao.filme (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
    CONSTRAINT fk_usuario_avaliacao_filme FOREIGN KEY (id_usuario) REFERENCES aplicacao.usuario (id) ON UPDATE NO ACTION ON DELETE NO ACTION
@@ -91,13 +80,6 @@ CREATE TABLE aplicacao.avaliacao_video
 WITH (
   OIDS = FALSE
 );
-
-ALTER TABLE aplicacao.usuario
-   ADD COLUMN id_perfil bigint;
-ALTER TABLE aplicacao.usuario
-  ADD CONSTRAINT fk_perfil_usuario FOREIGN KEY (id_perfil)
-      REFERENCES aplicacao.perfil (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 CREATE TABLE aplicacao.video_serie_novela
 (

@@ -3,6 +3,7 @@ package arq.dominio.hibernate.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import arq.dominio.hibernate.Database;
 import arq.dominio.model.AbstractEntity;
@@ -23,6 +24,11 @@ public abstract class GenericDAO<T extends AbstractEntity> {
 	
 	public abstract List<T> getAll();
 	
-	public abstract void salvar(T t);
+	public void salvar(T t) {
+		Transaction transaction = getSession().beginTransaction();
+		getSession().saveOrUpdate(t);
+		transaction.commit();
+		getSession().close();	
+	}
 	
 }

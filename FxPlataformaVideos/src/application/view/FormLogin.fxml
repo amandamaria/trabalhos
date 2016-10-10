@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx-background-color: #1c495c;" styleClass="bac" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.LoginController">
+<children><ImageView fx:id="imgLogo" fitHeight="67.0" fitWidth="303.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true" styleClass="button" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="0.0">
+<image>
+<Image url="@../../resources/layout/imagens/logo.png" />
+</image></ImageView><GridPane layoutX="40.0" layoutY="178.0" prefHeight="298.0" prefWidth="328.0">
+  <columnConstraints>
+    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints fillHeight="false" maxHeight="150.0" minHeight="10.0" prefHeight="35.0" valignment="CENTER" vgrow="SOMETIMES" />
+<RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+<RowConstraints maxHeight="150.0" minHeight="6.0" prefHeight="51.0" vgrow="SOMETIMES" />
+<RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+<RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><ImageView fitHeight="32.0" fitWidth="241.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/pass.png" />
+</image></ImageView><ImageView fitHeight="32.0" fitWidth="241.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../../resources/layout/imagens/email.png" />
+</image>
+</ImageView><Button fx:id="btnEntrar" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f66d41; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: white;" text="ENTRAR" GridPane.rowIndex="4">
+<font>
+<Font name="AR DARLING" size="12.0" />
+</font></Button><TextField fx:id="txtUsuario" prefHeight="45.0" prefWidth="190.0" promptText="email" style="-fx-background-color: transparent; -fx-alignment: center;" styleClass="text-field" stylesheets="@../application.css" /><PasswordField fx:id="txtSenha" prefHeight="32.0" prefWidth="170.0" promptText="senha" style="-fx-background-color: transparent; -fx-alignment: center;" GridPane.rowIndex="2" /><Label fx:id="labelCadastro" style="-fx-text-fill: white;" text="Ainda não possui cadastro?" GridPane.rowIndex="6" /><Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#abrirTelaCadastro" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: #1c495c;" text="CADASTRAR" GridPane.rowIndex="7">
+<font>
+<Font name="AR DARLING" size="12.0" />
+</font>
+</Button>
+</children>
+</GridPane>
+</children></AnchorPane>

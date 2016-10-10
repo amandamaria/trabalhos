@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1c495c;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FormCadastroUsuarioController">
+<children><GridPane fx:id="gridDadosPessoais" layoutX="94.0" layoutY="101.0" prefHeight="150.0" prefWidth="653.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="110.0">
+  <columnConstraints>
+<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="115.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="176.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="124.0" minWidth="10.0" prefWidth="76.0" />
+    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="110.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="176.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+    <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+    <RowConstraints fillHeight="false" maxHeight="50.0" minHeight="10.0" prefHeight="50.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><ImageView fitHeight="1.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/linhacampo.png" />
+</image></ImageView><ImageView fitHeight="1.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/linhacampo.png" />
+</image></ImageView><ImageView fitHeight="1.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/linhacampo.png" />
+</image></ImageView><ImageView fitHeight="1.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+<image>
+<Image url="@../../resources/layout/imagens/linhacampo.png" />
+</image></ImageView><ImageView fitHeight="1.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/linhacampo.png" />
+</image></ImageView><TextField fx:id="txtNome" style="-fx-background-color: transparent;" GridPane.columnIndex="1" /><TextField fx:id="txtSobrenome" style="-fx-background-color: transparent;" GridPane.columnIndex="4" /><DatePicker fx:id="txtDataNascimento" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1" /><TextField fx:id="txtEmail" style="-fx-background-color: transparent;" GridPane.columnIndex="4" GridPane.rowIndex="1" /><PasswordField fx:id="txtSenha" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="2" /><PasswordField fx:id="txtConfSenha" style="-fx-background-color: transparent;" GridPane.columnIndex="4" GridPane.rowIndex="2" /><Label style="-fx-text-fill: #ffffff;" text="Nome:" wrapText="true">
+<font>
+<Font size="16.0" />
+</font></Label><Label prefHeight="53.0" prefWidth="117.0" style="-fx-text-fill: #ffffff;" text="Data de Nascimento:" wrapText="true" GridPane.rowIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Senha:" GridPane.rowIndex="2">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Sobrenome:" GridPane.columnIndex="3">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="E-mail:" GridPane.columnIndex="3" GridPane.rowIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Confirmar senha:" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+<font>
+<Font size="16.0" />
+</font></Label><ImageView fitHeight="1.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/linhacampo.png" />
+</image></ImageView>
+</children>
+</GridPane><HBox alignment="CENTER_LEFT" layoutX="94.0" layoutY="289.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="34.0" prefWidth="612.0" spacing="5.0">
+<children><Label fx:id="lbInteresseTipo" style="-fx-text-fill: #ffffff;" text="Me interesso por:">
+<font>
+<Font size="16.0" />
+</font></Label><GridPane fx:id="gridInteresseTipo" prefHeight="30.0" prefWidth="459.0">
+  <columnConstraints>
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="37.0" minWidth="10.0" prefWidth="40.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0" />
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="45.0" minWidth="10.0" prefWidth="40.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="94.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image>
+</ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image>
+</ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image>
+</ImageView><Label style="-fx-text-fill: #ffffff;" text="Filmes" GridPane.columnIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Séries" GridPane.columnIndex="3">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Desenhos" GridPane.columnIndex="5">
+<font>
+<Font size="16.0" />
+</font></Label>
+</children>
+</GridPane>
+</children></HBox><GridPane fx:id="gridCategorias" layoutX="94.0" layoutY="371.0" prefHeight="152.0" prefWidth="653.0">
+  <columnConstraints>
+<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="16.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="6">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="6" GridPane.rowIndex="1">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="6" GridPane.rowIndex="2">
+<image>
+<Image url="@../../resources/layout/imagens/checkbox.png" />
+</image></ImageView><Label style="-fx-text-fill: #ffffff;" text="Policial" GridPane.columnIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Drama" GridPane.columnIndex="1" GridPane.rowIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Suspense" GridPane.columnIndex="1" GridPane.rowIndex="2">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Erótico" GridPane.columnIndex="3">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Ação" GridPane.columnIndex="3" GridPane.rowIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Guerra" GridPane.columnIndex="3" GridPane.rowIndex="2">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Crime" GridPane.columnIndex="5">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Aventura" GridPane.columnIndex="5" GridPane.rowIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Comédia" GridPane.columnIndex="5" GridPane.rowIndex="2">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Fantasia" GridPane.columnIndex="7">
+<font>
+<Font size="16.0" />
+</font></Label><Label prefHeight="50.0" prefWidth="121.0" style="-fx-text-fill: #ffffff;" text="Ficção Científica" wrapText="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
+<font>
+<Font size="16.0" />
+</font></Label><Label style="-fx-text-fill: #ffffff;" text="Espionagem" GridPane.columnIndex="7" GridPane.rowIndex="2">
+<font>
+<Font size="16.0" />
+</font></Label>
+</children>
+</GridPane><Label fx:id="lbCategorias" layoutX="94.0" layoutY="346.0" style="-fx-text-fill: #ffffff;" text="Categorias preferidas:">
+<font>
+<Font size="16.0" />
+</font></Label><GridPane layoutX="94.0" layoutY="538.0" prefHeight="25.0" prefWidth="612.0">
+  <columnConstraints>
+    <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><Button fx:id="btnCadastrar" layoutX="363.1875" layoutY="506.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f66d41; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: #ffffff;" text="CADASTRAR" />
+</children>
+</GridPane><Label fx:id="lbTitulo" layoutX="188.0" layoutY="8.0" style="-fx-text-fill: #ffffff;" text="Cadastro de usuário" AnchorPane.topAnchor="0.0">
+<font>
+<Font size="48.0" />
+</font></Label>
+</children></AnchorPane>

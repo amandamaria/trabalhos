@@ -15,7 +15,6 @@
 		<property name="show_sql">true</property>
 		<property name="hbm2ddl.auto">none</property>
 		
-		<mapping class="application.model.Perfil"/>
 		<mapping class="application.model.Genero"/>
 		<mapping class="application.model.Video"/>
 		<mapping class="application.model.Usuario"/>
