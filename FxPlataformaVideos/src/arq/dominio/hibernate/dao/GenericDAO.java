@@ -10,8 +10,8 @@ import arq.dominio.model.AbstractEntity;
 
 public abstract class GenericDAO<T extends AbstractEntity> {
 	
-	private Session session;
 	private Database database;
+	private Session session;
 	
 	public GenericDAO() {
 		this.database = Database.getInstance();
@@ -19,14 +19,17 @@ public abstract class GenericDAO<T extends AbstractEntity> {
 	}
 	
 	protected Session getSession() {
+		if(!session.isOpen()) {
+			session = database.getSession();
+		}
 		return session;
 	}
 	
 	public abstract List<T> getAll();
 	
-	public void salvar(T t) {
+	public void salvar(T t) {		
 		Transaction transaction = getSession().beginTransaction();
-		getSession().saveOrUpdate(t);
+		getSession().persist(t);
 		transaction.commit();
 		getSession().close();	
 	}

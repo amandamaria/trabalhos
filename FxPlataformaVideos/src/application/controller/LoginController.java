@@ -96,13 +96,7 @@ public class LoginController extends AbstractController<Usuario> {
 		btnCadastrar.setFont(ApplicationUtil.getFontCaviarDreams(13));
 		labelCadastro.setFont(ApplicationUtil.getFontCaviarDreams(14));
 		txtSenha.setFont(ApplicationUtil.getFontCaviarDreams(14));
-		txtUsuario.setFont(ApplicationUtil.getFontCaviarDreams(14));
-		
-		txtUsuario.getStyleClass().add("text-field");
-		txtSenha.getStyleClass().add("text-field");
-		
-		btnEntrar.getStyleClass().add("button-mouse");
-		btnCadastrar.getStyleClass().add("button-mouse");
+		txtUsuario.setFont(ApplicationUtil.getFontCaviarDreams(14));		
 	}
 
 	@Override
@@ -112,6 +106,12 @@ public class LoginController extends AbstractController<Usuario> {
 	@Override
 	public URL getFxmlUrl() {
 		return Main.class.getResource("/application/view/FormLogin.fxml");
+	}
+
+	@Override
+	public void initListeners() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

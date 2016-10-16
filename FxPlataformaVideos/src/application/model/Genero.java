@@ -27,10 +27,15 @@ public class Genero extends AbstractEntity {
 	
 	@ManyToMany(mappedBy="generos", fetch=FetchType.LAZY)
 	private List<Video> videos;
+	
 
 	@Override
 	public long getId() {
 		return this.id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {

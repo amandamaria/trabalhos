@@ -129,3 +129,17 @@ CREATE TABLE aplicacao.usuario_video
 WITH (
   OIDS=FALSE
 );
+
+CREATE TABLE aplicacao.preferencia_genero_usuario
+(
+   id_usuario bigint, 
+   id_genero bigint, 
+   CONSTRAINT pk_preferencia_genero_usuario PRIMARY KEY (id_usuario, id_genero), 
+   CONSTRAINT fk_usuario_preferencia_genero_usuario FOREIGN KEY (id_usuario) 
+   		REFERENCES aplicacao.usuario (id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+   CONSTRAINT fk_genero_preferencia_genero_usuario FOREIGN KEY (id_genero) 
+   		REFERENCES aplicacao.genero (id) ON UPDATE NO ACTION ON DELETE NO ACTION
+) 
+WITH (
+  OIDS = FALSE
+);

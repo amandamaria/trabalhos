@@ -29,8 +29,7 @@ public class NavegadorTela {
 		} 
 		root.getChildren().clear();
 		root.getChildren().add(pane);
-		centralizarPane(pane);
-		
+		centralizarPane(pane);		
 	}
 	
 	private void centralizarPane(Pane paneFilho) {

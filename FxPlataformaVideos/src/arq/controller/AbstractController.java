@@ -29,6 +29,8 @@ public abstract class AbstractController<T extends AbstractEntity> extends Mensa
 	
 	public abstract URL getFxmlUrl();
 	
+	public abstract void initListeners();
+	
 	public AbstractController() {
 		loader = ApplicationUtil.getFXMLLoader(getFxmlUrl());
 	}
@@ -47,6 +49,7 @@ public abstract class AbstractController<T extends AbstractEntity> extends Mensa
 	public void initialize() {
 		initComponents();
 		initLayout();
+		initListeners();
 	}
 	
 	public Stage getStage() {

@@ -64,49 +64,19 @@
 <Font size="16.0" />
 </font></Label><GridPane fx:id="gridInteresseTipo" prefHeight="30.0" prefWidth="459.0">
   <columnConstraints>
-<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="37.0" minWidth="10.0" prefWidth="40.0" />
-<ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0" />
-<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="45.0" minWidth="10.0" prefWidth="40.0" />
-<ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="94.0" />
-    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="150.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="154.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="155.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
-<children><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image>
-</ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image>
-</ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image>
-</ImageView><Label style="-fx-text-fill: #ffffff;" text="Filmes" GridPane.columnIndex="1">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Séries" GridPane.columnIndex="3">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Desenhos" GridPane.columnIndex="5">
-<font>
-<Font size="16.0" />
-</font></Label>
-</children>
 </GridPane>
-</children></HBox><GridPane fx:id="gridCategorias" layoutX="94.0" layoutY="371.0" prefHeight="152.0" prefWidth="653.0">
+</children></HBox><GridPane fx:id="gridGenerosInteresse" layoutX="94.0" layoutY="371.0" prefHeight="152.0" prefWidth="653.0">
   <columnConstraints>
-<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-<ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="21.0" />
 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
@@ -114,80 +84,6 @@
     <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
     <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
   </rowConstraints>
-<children><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="1">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.rowIndex="2">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="4" GridPane.rowIndex="2">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="6">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="6" GridPane.rowIndex="1">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><ImageView fitHeight="16.0" fitWidth="21.0" pickOnBounds="true" smooth="false" GridPane.columnIndex="6" GridPane.rowIndex="2">
-<image>
-<Image url="@../../resources/layout/imagens/checkbox.png" />
-</image></ImageView><Label style="-fx-text-fill: #ffffff;" text="Policial" GridPane.columnIndex="1">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Drama" GridPane.columnIndex="1" GridPane.rowIndex="1">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Suspense" GridPane.columnIndex="1" GridPane.rowIndex="2">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Erótico" GridPane.columnIndex="3">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Ação" GridPane.columnIndex="3" GridPane.rowIndex="1">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Guerra" GridPane.columnIndex="3" GridPane.rowIndex="2">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Crime" GridPane.columnIndex="5">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Aventura" GridPane.columnIndex="5" GridPane.rowIndex="1">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Comédia" GridPane.columnIndex="5" GridPane.rowIndex="2">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Fantasia" GridPane.columnIndex="7">
-<font>
-<Font size="16.0" />
-</font></Label><Label prefHeight="50.0" prefWidth="121.0" style="-fx-text-fill: #ffffff;" text="Ficção Científica" wrapText="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
-<font>
-<Font size="16.0" />
-</font></Label><Label style="-fx-text-fill: #ffffff;" text="Espionagem" GridPane.columnIndex="7" GridPane.rowIndex="2">
-<font>
-<Font size="16.0" />
-</font></Label>
-</children>
 </GridPane><Label fx:id="lbCategorias" layoutX="94.0" layoutY="346.0" style="-fx-text-fill: #ffffff;" text="Categorias preferidas:">
 <font>
 <Font size="16.0" />

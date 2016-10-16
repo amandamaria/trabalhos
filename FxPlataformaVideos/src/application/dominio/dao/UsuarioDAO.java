@@ -16,7 +16,6 @@ public class UsuarioDAO extends GenericDAO<Usuario> implements UsuarioHibernateD
 	public Usuario buscarPorEmailESenha(String email, String senha) {
 		Criteria criteria = getSession().createCriteria(Usuario.class);
 		List<Usuario> usuarios = criteria.add(Restrictions.like("email", email)).add(Restrictions.like("senha", senha)).list();
-		getSession().close();
 		if(usuarios != null && !usuarios.isEmpty()) {
 			return usuarios.get(0);
 		}
@@ -36,7 +35,6 @@ public class UsuarioDAO extends GenericDAO<Usuario> implements UsuarioHibernateD
 		boolean emailJaExiste = false;
 		Criteria criteria = getSession().createCriteria(Usuario.class);		
 		List<Usuario> usuarios = criteria.add(Restrictions.like("email", email)).list();
-		getSession().close();
 		if(usuarios != null && !usuarios.isEmpty()) {
 			emailJaExiste = true;
 		}

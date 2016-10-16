@@ -6,9 +6,13 @@ import java.util.List;
 
 import application.Main;
 import application.dominio.dao.UsuarioDAO;
+import application.model.Genero;
+import application.model.TipoVideo;
 import application.model.Usuario;
+import application.model.util.GeneroUtil;
 import application.util.ApplicationUtil;
-import application.view.meuscomponentes.CheckBox;
+import application.view.meuscomponentes.CheckBoxGenero;
+import application.view.meuscomponentes.CheckBoxTipoVideo;
 import arq.controller.AbstractController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +22,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -41,7 +44,7 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
     private GridPane gridDadosPessoais;
 
     @FXML
-    private GridPane gridCategorias;
+    private GridPane gridGenerosInteresse;
     
     @FXML
     private GridPane gridInteresseTipo;
@@ -67,14 +70,17 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
     @FXML
     private Label lbTitulo;
     
-    private List<CheckBox> checkCategorias;
+    private List<CheckBoxGenero> checkGeneros;
 
-    private UsuarioDAO usuarioDAO;
+    private List<CheckBoxTipoVideo> checkTiposVideo;
     
+    private UsuarioDAO usuarioDAO;
+            
     private Usuario usuario;
     
     public FormCadastroUsuarioController() {
-    	checkCategorias = new ArrayList<CheckBox>();
+    	checkGeneros = new ArrayList<>();
+    	checkTiposVideo = new ArrayList<>();
     	usuarioDAO = new UsuarioDAO();
 	}
 
@@ -106,9 +112,7 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 		lbCategorias.setFont(ApplicationUtil.getFontCaviarDreams(16));
 		lbInteresseTipo.setFont(ApplicationUtil.getFontCaviarDreams(16));
 		lbTitulo.setFont(ApplicationUtil.getFontCaviarDreams(48));
-		aplicarFonteEmLote(gridCategorias);
 		aplicarFonteEmLote(gridDadosPessoais);
-		aplicarFonteEmLote(gridInteresseTipo);
 	}
 	
     private void aplicarFonteEmLote(Pane componentPai) {
@@ -145,8 +149,16 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 		usuario.setAdministrador(false);
 		usuario.setEmail(txtEmail.getText());
 		usuario.setDataNascimento(ApplicationUtil.localDateToDate(txtDataNascimento.getValue()));
-		System.out.println(usuario.getDataNascimento());
+		popularGenerosUsuario();
 		usuario.setSenha(txtSenha.getText());
+	}
+
+	private void popularGenerosUsuario() {
+		for (CheckBoxGenero checkBoxGenero : checkGeneros) {
+			if(checkBoxGenero.isChecked()) {
+				usuario.getGenerosFavoritos().add(checkBoxGenero.getGenero());
+			}
+		}		
 	}
 
 	private boolean validarDadosCadastro() {
@@ -176,27 +188,69 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 		if(verificarExistenciaEmail()) {
 			contemErro = true;
 		}
+		if(!selecionouGeneroFavorito()) {
+			contemErro = true;
+		}		
+		if(!tipoVideoFavorito()) {
+			contemErro = true;
+		}
  		return !contemErro;
+	}
+
+	private boolean tipoVideoFavorito() {
+		boolean existeTipoSelecionado = false;
+		for (CheckBoxTipoVideo checkBoxTipoVideo : checkTiposVideo) {
+			if(checkBoxTipoVideo.isChecked()) {
+				existeTipoSelecionado = true;
+				break;
+			}
+		}
+		return existeTipoSelecionado;
+	}
+
+	private boolean selecionouGeneroFavorito() {
+		boolean existeGeneroSelecionado = false;
+		for (CheckBoxGenero checkBoxGenero : checkGeneros) {
+			if(checkBoxGenero.isChecked()) {
+				existeGeneroSelecionado = true;
+				break;
+			}
+		}
+		return existeGeneroSelecionado;
 	}
 
 	@Override
 	public void initComponents() {
-		initCheckBoxes(gridCategorias);
-		initCheckBoxes(gridInteresseTipo);
+		initCheckBoxesGenero(gridGenerosInteresse);
+		initCheckBoxesTipo(gridInteresseTipo);
 	}
 
-	private void initCheckBoxes(GridPane gridContainer) {
-		int index = 0;
-		for (Node node : gridContainer.getChildren()) {			
-			if(node instanceof ImageView) {
-				CheckBox checkBox = new CheckBox((ImageView) node, "");
-				checkCategorias.add(checkBox);
-			} else if(node instanceof Label) {
-				Label labelCheck = (Label) node;
-				checkCategorias.get(index).setNome(labelCheck.getText());
-				index++;
+	private void initCheckBoxesTipo(GridPane gridContainer) {
+		List<TipoVideo> tiposVideo = TipoVideo.getTipos();
+		int col = 0;
+		for (TipoVideo tipo : tiposVideo) {
+			CheckBoxTipoVideo checkBoxTipoVideo = new CheckBoxTipoVideo(tipo);
+			checkTiposVideo.add(checkBoxTipoVideo);
+			gridContainer.add(checkBoxTipoVideo.getVisibleElement(), col, 0);
+			col++;
+		}				
+	}
+
+	private void initCheckBoxesGenero(GridPane gridContainer) {
+		List<Genero> generos = GeneroUtil.getGeneros();
+		int col = 0;
+		int linha = 0;
+		for (Genero genero : generos) {
+			CheckBoxGenero checkBoxGenero = new CheckBoxGenero(genero);
+			checkGeneros.add(checkBoxGenero);
+			gridContainer.add(checkBoxGenero.getVisibleElement(), col, linha);
+			if(linha == 2) {
+				col++;
+				linha = 0;
+			} else {
+				linha++;
 			}
-		}
+		}				
 	}
 
 	@Override
@@ -204,5 +258,9 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 		return Main.class.getResource("/application/view/FormCadastroUsuario.fxml");
 	}
 
+	@Override
+	public void initListeners() {
+	}
+	
 }
 

@@ -3,11 +3,24 @@
 	-fx-background-color: #1c495c
 }
 
-.button-mouse:hover {
+.button:hover {
 	-fx-cursor: hand;
 }
 
 .text-field {
 	-fx-background-color: transparent ;
 	-fx-text-fill: white ;
+}
+
+.campo-de-busca {
+	-fx-background-color: transparent ;
+	-fx-text-fill: #f66d41 ;
+}
+
+.check-box-text {
+	-fx-text-fill: white ;		
+}
+
+.check-box-text:hover {
+	-fx-cursor: hand;	
 }

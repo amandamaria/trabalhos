@@ -13,7 +13,6 @@
 		<property name="connection.password">postgres</property>
 		<property name="connection.pool_size">10</property>
 		<property name="show_sql">true</property>
-		<property name="hbm2ddl.auto">none</property>
 		
 		<mapping class="application.model.Genero"/>
 		<mapping class="application.model.Video"/>

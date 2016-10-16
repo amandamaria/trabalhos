@@ -1,14 +1,17 @@
 package application.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -32,11 +35,20 @@ public class Usuario extends AbstractEntity {
 	
 	private String senha;
 	
-	private boolean administrador;
+	private boolean administrador;	
+	
+	@ManyToMany
+	@JoinTable(name = "preferencia_genero_usuario", joinColumns = {@JoinColumn(name = "id_usuario", referencedColumnName="id")},
+			inverseJoinColumns = { @JoinColumn(name = "id_genero", referencedColumnName = "id") })
+	private List<Genero> generosFavoritos;
 	
 	@Column(name="data_nascimento")
 	private Date dataNascimento;
-
+	
+	public Usuario() {
+		generosFavoritos = new ArrayList<>();
+	}
+	
 	@Override
 	public long getId() {
 		return this.id;
@@ -92,6 +104,14 @@ public class Usuario extends AbstractEntity {
 
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+
+	public List<Genero> getGenerosFavoritos() {
+		return generosFavoritos;
+	}
+
+	public void setGenerosFavoritos(List<Genero> generosFavoritos) {
+		this.generosFavoritos = generosFavoritos;
 	}
 
 }
