@@ -23,6 +23,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -112,6 +113,9 @@ public class ListagemVideosController extends AbstractController<Video> {
     @FXML
     private Label lbBemVindo;
     
+    @FXML
+    private Hyperlink linkSair;
+    
     private boolean opcoesVisiveis;
     
     private FormCadastroVideoController formCadastroVideoController;
@@ -139,6 +143,8 @@ public class ListagemVideosController extends AbstractController<Video> {
 	private static ImagemFilme filmeSelecionado;
 	
 	private static ImagemSeriado serieSelecionada;
+	
+	private LoginController loginController;
 	
     public ListagemVideosController() {
     	opcoesVisiveis = false;
@@ -169,21 +175,26 @@ public class ListagemVideosController extends AbstractController<Video> {
 	private void exibirSeries() {
 		ObservableList<Node> children = boxSeries.getChildren();
 		InfinityList<ImagemSeriado> seriesIterator = seriesInfinityList;
-		for (Node node : children) {
-			ImageView imagem = (ImageView) node;
-			imagem.setImage(seriesIterator.getValor());
-			seriesIterator = seriesIterator.getProximo();
-		}		
+		if(seriesIterator != null) {
+			for (Node node : children) {
+				ImageView imagem = (ImageView) node;
+				imagem.setImage(seriesIterator.getValor());
+				seriesIterator = seriesIterator.getProximo();
+			}		
+		}
 	}
 
 	private void exibirFilmes() {
 		ObservableList<Node> children = boxFilmes.getChildren();
 		InfinityList<ImagemFilme> filmesIterator = filmesInfinityList;
-		for (Node node : children) {
-			ImageView imagem = (ImageView) node;
-			imagem.setImage(filmesIterator.getValor());
-			filmesIterator = filmesIterator.getProximo();
-		}		
+		if(filmesIterator != null) {
+			for (Node node : children) {
+				ImageView imagem = (ImageView) node;
+				imagem.setImage(filmesIterator.getValor());
+				filmesIterator = filmesIterator.getProximo();
+			}	
+		}
+			
 	}
 
 	private void carregarVideos() {
@@ -244,7 +255,8 @@ public class ListagemVideosController extends AbstractController<Video> {
 		lbSerie.setFont(ApplicationUtil.getFontCaviarDreams(22));
 		lbFilme.setFont(ApplicationUtil.getFontCaviarDreams(22));
 		lbDesenho.setFont(ApplicationUtil.getFontCaviarDreams(22));
-		btnOpcoes.setFont(ApplicationUtil.getFontCaviarDreams(12));
+		btnOpcoes.setFont(ApplicationUtil.getFontCaviarDreams(14));
+		linkSair.setFont(ApplicationUtil.getFontCaviarDreams(14));
 	}
 
 	@Override
@@ -298,6 +310,15 @@ public class ListagemVideosController extends AbstractController<Video> {
 			@Override
 			public void handle(ActionEvent arg0) {
 				irParaTelaCadastroFilme();				
+			}
+		});
+		
+		linkSair.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {				
+				loginController = new LoginController();
+				getUsuarioLogado().setUsuario(null);
+				loginController.abrirTela();				
 			}
 		});
 		
