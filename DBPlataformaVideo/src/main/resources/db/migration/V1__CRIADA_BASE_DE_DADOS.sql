@@ -35,15 +35,17 @@ WITH (
   OIDS = FALSE
 );
 
-CREATE TABLE aplicacao.serie_desenho
+CREATE TABLE aplicacao.seriado
 (
    id bigint NOT NULL, 
    sinopse text, 
    classificacao_etaria integer, 
+   ano integer,
+   nome_diretor varchar(60),
    titulo character varying(60), 
    desenho boolean,
    imagem_path text,
-   CONSTRAINT pk_serie_desenho PRIMARY KEY (id)
+   CONSTRAINT pk_seriado PRIMARY KEY (id)
 ) 
 WITH (
   OIDS = FALSE
@@ -84,14 +86,14 @@ WITH (
   OIDS = FALSE
 );
 
-CREATE TABLE aplicacao.video_serie_desenho
+CREATE TABLE aplicacao.video_seriado
 (
    id bigint,
    id_video bigint, 
-   id_serie_desenho bigint, 
-   CONSTRAINT pk_video_serie_desenho PRIMARY KEY (id), 
-   CONSTRAINT fk_video_video_serie_desenho FOREIGN KEY (id_video) REFERENCES aplicacao.video (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
-   CONSTRAINT fk_serie_desenho_video_serie_desenho FOREIGN KEY (id_serie_desenho) REFERENCES aplicacao.serie_desenho (id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+   id_seriado bigint, 
+   CONSTRAINT pk_video_seriado PRIMARY KEY (id), 
+   CONSTRAINT fk_video_video_seriado FOREIGN KEY (id_video) REFERENCES aplicacao.video (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+   CONSTRAINT fk_seriado_video_seriado FOREIGN KEY (id_seriado) REFERENCES aplicacao.seriado (id) ON UPDATE NO ACTION ON DELETE NO ACTION,
    CONSTRAINT unique_id_video UNIQUE (id_video)   
 ) 
 WITH (

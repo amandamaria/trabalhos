@@ -6,12 +6,15 @@ import java.util.List;
 
 import application.Main;
 import application.dominio.dao.FilmeDAO;
+import application.dominio.dao.SerieDAO;
 import application.dominio.dao.VideoDAO;
 import application.list.InfinityList;
 import application.model.Filme;
+import application.model.Serie;
 import application.model.Video;
 import application.util.ApplicationUtil;
 import application.view.meuscomponentes.ImagemFilme;
+import application.view.meuscomponentes.ImagemSeriado;
 import arq.controller.AbstractController;
 import arq.dominio.hibernate.dao.GenericDAO;
 import javafx.collections.ObservableList;
@@ -28,6 +31,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 public class ListagemVideosController extends AbstractController<Video> {
+	
+	private static final int PRIMEIRO_ITEM = 0;
 
 	@FXML
     private Button btnOpcaoFilme;
@@ -88,6 +93,18 @@ public class ListagemVideosController extends AbstractController<Video> {
 
     @FXML
     private ImageView img1Serie;
+    
+    @FXML
+    private ImageView img2Serie;
+    
+    @FXML
+    private ImageView img3Serie;
+    
+    @FXML
+    private ImageView img4Serie;
+    
+    @FXML
+    private ImageView img5Serie;
 
     @FXML
     private Button btnBuscar;
@@ -103,21 +120,32 @@ public class ListagemVideosController extends AbstractController<Video> {
 
 	private FilmeDAO filmeDAO;
 	
+	private SerieDAO serieDAO;
+	
 	private List<Filme> filmes;
+	
+	private List<Serie> series;
 	
 	private InfinityList<ImagemFilme> filmesInfinityList;
 	
+	private InfinityList<ImagemSeriado> seriesInfinityList;
+	
 	private List<ImageView> imagensViewFilmes;
+	
+	private List<ImageView> imagensViewSeries;
 	
 	private InformacoesVideoController informacoesVideosController;
 	
 	private static ImagemFilme filmeSelecionado;
-
+	
+	private static ImagemSeriado serieSelecionada;
+	
     public ListagemVideosController() {
     	opcoesVisiveis = false;
     	formCadastroVideoController = new FormCadastroVideoController();
     	videoDAO = new VideoDAO();
-    	filmeDAO = new FilmeDAO();   
+    	filmeDAO = new FilmeDAO();  
+    	serieDAO = new SerieDAO();
 	}
 	
 	@Override
@@ -134,7 +162,18 @@ public class ListagemVideosController extends AbstractController<Video> {
 	}
 
 	private void exibirVideos() {
-		exibirFilmes();		
+		exibirFilmes();	
+		exibirSeries();
+	}
+
+	private void exibirSeries() {
+		ObservableList<Node> children = boxSeries.getChildren();
+		InfinityList<ImagemSeriado> seriesIterator = seriesInfinityList;
+		for (Node node : children) {
+			ImageView imagem = (ImageView) node;
+			imagem.setImage(seriesIterator.getValor());
+			seriesIterator = seriesIterator.getProximo();
+		}		
 	}
 
 	private void exibirFilmes() {
@@ -149,6 +188,27 @@ public class ListagemVideosController extends AbstractController<Video> {
 
 	private void carregarVideos() {
 		carregarFilmes();
+		carregarSeries();
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void carregarSeries() {
+		int idadeUsuario = getUsuarioLogado().getUsuario().getIdadeUsuario();
+		series = serieDAO.buscarSeriePorClassificacaoEtaria(idadeUsuario);
+		if(!series.isEmpty()) {			
+			seriesInfinityList = new InfinityList(new ImagemSeriado(series.get(PRIMEIRO_ITEM)));
+			int indice = 1;
+			while (indice < series.size()) {				
+				seriesInfinityList.addNovo(new ImagemSeriado(series.get(indice)));
+				indice++;
+			}
+			InfinityList<ImagemSeriado> seriesIterator = seriesInfinityList;
+			while (seriesIterator.getProximo() != null) {
+				seriesIterator = seriesIterator.getProximo();				
+			}
+			seriesInfinityList.setAnterior(seriesIterator);
+			seriesIterator.setProximo(seriesInfinityList);
+		}		
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -196,6 +256,16 @@ public class ListagemVideosController extends AbstractController<Video> {
 
 	private void iniciarListasImagesView() {
 		iniciarListasImagesViewFilmes();
+		iniciarListasImagensViewSerie();
+	}
+
+	private void iniciarListasImagensViewSerie() {
+		imagensViewSeries = new ArrayList<>();
+		imagensViewSeries.add(img1Serie);
+		imagensViewSeries.add(img2Serie);
+		imagensViewSeries.add(img3Serie);
+		imagensViewSeries.add(img4Serie);
+		imagensViewSeries.add(img5Serie);
 	}
 
 	private void iniciarListasImagesViewFilmes() {
@@ -232,8 +302,79 @@ public class ListagemVideosController extends AbstractController<Video> {
 		});
 		
 		imagensFilmeListeners();
+		imagensSerieListeners();
 	}
 	
+	private void imagensSerieListeners() {
+		img3Serie.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				filmeSelecionado = null;
+				serieSelecionada = (ImagemSeriado)img3Serie.getImage();
+				informacoesVideosController = new InformacoesVideoController();
+				informacoesVideosController.abrirTela();				
+			}
+		});
+		
+		img4Serie.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {				
+				InfinityList<ImagemSeriado> primeiraImagemEsquerda = seriesInfinityList;
+				while (!primeiraImagemEsquerda.getValor().equals(img1Serie.getImage())) {
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}
+				
+				for (ImageView imageView : imagensViewSeries) {
+					imageView.setImage(primeiraImagemEsquerda.getProximo().getValor());
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}				
+			}
+		});
+		
+		img5Serie.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {				
+				InfinityList<ImagemSeriado> primeiraImagemEsquerda = seriesInfinityList;
+				while (!primeiraImagemEsquerda.getValor().equals(img1Serie.getImage())) {
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}		
+				
+				for (ImageView imageView : imagensViewSeries) {
+					imageView.setImage(primeiraImagemEsquerda.getProximo().getProximo().getValor());
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}
+			}
+		});
+		
+		img2Serie.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {				
+				InfinityList<ImagemSeriado> primeiraImagemEsquerda = seriesInfinityList;
+				while (!primeiraImagemEsquerda.getValor().equals(img1Serie.getImage())) {
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}
+				for (ImageView imageView : imagensViewSeries) {
+					imageView.setImage(primeiraImagemEsquerda.getAnterior().getValor());
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}
+			}
+		});
+		
+		img1Serie.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {				
+				InfinityList<ImagemSeriado> primeiraImagemEsquerda = seriesInfinityList;
+				while (!primeiraImagemEsquerda.getValor().equals(img1Serie.getImage())) {
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}
+				for (ImageView imageView : imagensViewSeries) {
+					imageView.setImage(primeiraImagemEsquerda.getAnterior().getAnterior().getValor());
+					primeiraImagemEsquerda = primeiraImagemEsquerda.getProximo();
+				}
+			}
+		});
+	}
+
 	private void imagensFilmeListeners() {
 		img3Filme.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
@@ -319,4 +460,9 @@ public class ListagemVideosController extends AbstractController<Video> {
 	public static ImagemFilme getVideoSelecionado() {		
 		return filmeSelecionado;
 	}
+
+	public static ImagemSeriado getSerieSelecionada() {
+		return serieSelecionada;
+	}
+
 }

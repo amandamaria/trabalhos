@@ -3,9 +3,11 @@ package application.controller;
 import java.net.URL;
 
 import application.Main;
+import application.model.Serie;
 import application.model.Video;
 import application.util.ApplicationUtil;
 import application.view.meuscomponentes.ImagemFilme;
+import application.view.meuscomponentes.ImagemSeriado;
 import arq.controller.AbstractController;
 import arq.dominio.hibernate.dao.GenericDAO;
 import javafx.collections.ObservableList;
@@ -36,11 +38,14 @@ public class InformacoesVideoController extends AbstractController<Video> {
     
     private ImagemFilme imagemFilme;
     
+    private ImagemSeriado imagemSerie;
+    
     private ListagemVideosController listagemVideosController;
  		
 	public InformacoesVideoController() {
 		this.listagemVideosController = new ListagemVideosController();	
 		this.imagemFilme = ListagemVideosController.getVideoSelecionado();
+		this.imagemSerie = ListagemVideosController.getSerieSelecionada();
 	}
 
 	@Override
@@ -49,8 +54,7 @@ public class InformacoesVideoController extends AbstractController<Video> {
 	}
 
 	@Override
-	public void initLayout() {
-		imgFolder.setImage(imagemFilme);
+	public void initLayout() {		
 		aplicarFonteLabels();	
 		popularInformacoesVideo();
 	}
@@ -58,6 +62,8 @@ public class InformacoesVideoController extends AbstractController<Video> {
 	private void popularInformacoesVideo() {
 		ObservableList<Node> children = boxDetalhes.getChildren();
 		if(imagemFilme != null) {
+			imgFolder.setImage(imagemFilme);
+			
 			Video video = imagemFilme.getFilme().getVideo();
 			int indice = -1;
 			Label lbTituloFilme = (Label)children.get(++indice);
@@ -80,6 +86,31 @@ public class InformacoesVideoController extends AbstractController<Video> {
 			
 			Label lbFaixaEtaria = (Label)children.get(++indice);
 			lbFaixaEtaria.setText(lbFaixaEtaria.getText().concat(video.getClassificacaoEtaria()+" anos"));
+		} else if (imagemSerie != null) {
+			imgFolder.setImage(imagemSerie);
+			
+			Serie seriado = imagemSerie.getSeriado();
+			int indice = -1;
+			Label lbTituloFilme = (Label)children.get(++indice);
+			lbTituloFilme.setText(lbTituloFilme.getText().concat(seriado.getTitulo()));
+			
+			Label lbSinopse = (Label)children.get(++indice);
+			lbSinopse.setText(lbSinopse.getText().concat(seriado.getSinopse()));
+			
+			Label lbAno = (Label)children.get(++indice);
+			lbAno.setText(lbAno.getText().concat(seriado.getAno()+""));
+			
+			Label lbGenero = (Label)children.get(++indice);
+			lbGenero.setText(lbGenero.getText().concat("Ver isso aqui"));			
+			
+			Label lbDiretor = (Label)children.get(++indice);
+			lbDiretor.setText("Diretor ".concat(seriado.getDiretor()));
+			
+			Label lbFaixaEtaria = (Label)children.get(++indice);
+			lbFaixaEtaria.setText("Classificação indicativa: ".concat(seriado.getClassificacaoEtaria()+" anos"));
+			
+			Label lbAtorPrincipal = (Label)children.get(++indice);
+			lbAtorPrincipal.setText("");
 		}
 	}
 
