@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1c495c;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.FormCadastroVideoController">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1c495c;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FormCadastroVideoController">
 <children><Label fx:id="lbTitulo" layoutX="209.0" text="Cadastro de Filme" textFill="#fff9f9">
 <font>
 <Font size="48.0" />
@@ -90,7 +96,7 @@
 </font></Label><Label text="Poster:" textFill="WHITE" GridPane.rowIndex="1">
 <font>
 <Font size="16.0" />
-</font></Label><TextField style="-fx-background-color: transparent;" GridPane.columnIndex="1" /><TextField style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1" /><Button fx:id="btSelecionarMidiaVide" mnemonicParsing="false" onAction="#selecionarVideo" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #f66d41; -fx-background-insets: 0;" text="SELECIONAR" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
+</font></Label><TextField fx:id="txtVideoFile" editable="false" style="-fx-background-color: transparent;" GridPane.columnIndex="1" /><TextField fx:id="txtPosterFile" editable="false" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="1" /><Button fx:id="btSelecionarMidiaVide" mnemonicParsing="false" onAction="#selecionarVideo" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #f66d41; -fx-background-insets: 0;" text="SELECIONAR" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
 <font>
 <Font size="14.0" />
 </font></Button><Button fx:id="btSelecionarMidiaFolder" mnemonicParsing="false" onAction="#selecionarFolder" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-color: #f66d41; -fx-background-insets: 0;" text="SELECIONAR" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">

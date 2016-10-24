@@ -41,9 +41,7 @@ public class Genero extends AbstractEntity {
 	public String getNome() {
 		return nome;
 	}
-
-
-
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -54,6 +52,11 @@ public class Genero extends AbstractEntity {
 
 	public void setVideos(List<Video> videos) {
 		this.videos = videos;
+	}
+	
+	@Override
+	public String toString() {		
+		return this.nome;
 	}
 
 }
