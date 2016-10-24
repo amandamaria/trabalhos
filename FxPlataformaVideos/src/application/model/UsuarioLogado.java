@@ -12,11 +12,11 @@ public class UsuarioLogado {
 		return usuarioLogado;
 	}
 	
-	public Usuario getUsuarioLogado() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 	
-	public Usuario setUsuarioLogado(Usuario usuario) {
+	public Usuario setUsuario(Usuario usuario) {
 		return UsuarioLogado.usuario = usuario;
 	}
 }

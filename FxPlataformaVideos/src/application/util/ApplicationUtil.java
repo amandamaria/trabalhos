@@ -40,11 +40,7 @@ public class ApplicationUtil {
 	public static Font getFontCaviarDreams(int tamanho) {
 		return Font.loadFont(Main.class.getResource("/resources/layout/font/CaviarDreams.ttf").toString(), tamanho);
 	}
-	
-	public static Font getFontCaviarDreamsBold(int tamanho) {
-		return Font.loadFont(Main.class.getResource("/resources/layout/font/CaviarDreams_Bold.ttf").toString(), tamanho);
-	}
-	
+		
 	public static Date localDateToDate(LocalDate localDate) {
 		return Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 	}

@@ -1,5 +1,6 @@
 package application.model;
 
+import java.beans.Transient;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import application.model.util.UsuarioUtil;
 import arq.dominio.model.AbstractEntity;
 
 @Table(schema="aplicacao")
@@ -112,6 +114,11 @@ public class Usuario extends AbstractEntity {
 
 	public void setGenerosFavoritos(List<Genero> generosFavoritos) {
 		this.generosFavoritos = generosFavoritos;
+	}
+	
+	@Transient
+	public int getIdadeUsuario() {
+		return UsuarioUtil.getIdadeUsuario(this);
 	}
 
 }

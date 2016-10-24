@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: red;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1c495c;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.InformacoesVideoController">
+<children><ImageView fx:id="imgFolder" fitHeight="403.0" fitWidth="293.0" layoutX="36.0" layoutY="78.0" pickOnBounds="true">
+<image>
+<Image url="@../../../../../../../../Amanda/Agenda_Antes_1.png" />
+</image></ImageView><Label fx:id="lbTituloForm" layoutX="344.0" text="Detalhes" textFill="#f8f6f6">
+<font>
+<Font size="29.0" />
+</font></Label><VBox fx:id="boxDetalhes" layoutX="354.0" layoutY="97.0" prefHeight="384.0" prefWidth="410.0" spacing="10.0">
+<children><Label text="Título: " textFill="WHITE">
+<font>
+<Font size="14.0" />
+</font></Label><Label text="Sinopse: " textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+<font>
+<Font size="14.0" />
+</font>
+</Label><Label text="Ano: " textFill="WHITE">
+<font>
+<Font size="14.0" />
+</font></Label><Label text="Gênero: " textFill="WHITE">
+<font>
+<Font size="14.0" />
+</font></Label><Label text="Ator principal: " textFill="WHITE">
+<font>
+<Font size="14.0" />
+</font></Label><Label text="Diretor: " textFill="WHITE">
+<font>
+<Font size="14.0" />
+</font></Label><Label text="Classificaçao indicativa: " textFill="WHITE">
+<font>
+<Font size="14.0" />
+</font></Label>
+</children></VBox><Button fx:id="btnAssitir" layoutX="441.0" layoutY="527.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-insets: 0; -fx-background-color: #f66d41; -fx-text-fill: white;" text="ASSISTIR">
+<font>
+<Font size="14.0" />
+</font>
+</Button><Button fx:id="btForm" layoutX="209.0" layoutY="527.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-insets: 0; -fx-background-color: white; -fx-text-fill: #f66d41;" text="VOLTAR">
+<font>
+<Font size="14.0" />
+</font>
+</Button>
+</children></AnchorPane>

@@ -3,6 +3,8 @@ package application.controller;
 import java.net.URL;
 
 import application.Main;
+import application.dominio.dao.FilmeDAO;
+import application.dominio.dao.VideoDAO;
 import application.model.Video;
 import application.util.ApplicationUtil;
 import arq.controller.AbstractController;
@@ -69,6 +71,16 @@ public class FormCadastroVideoController extends AbstractController<Video> {
     @FXML
     private AnchorPane pane;
 
+    private ListagemVideosController listagemVideosController;
+    
+    private FilmeDAO filmeDAO;
+    
+    private VideoDAO videoDAO;
+    
+    public FormCadastroVideoController() {
+    	this.filmeDAO = new FilmeDAO();
+    	this.videoDAO = new VideoDAO();
+	}
    
     @FXML
     void selecionarVideo(ActionEvent event) {
@@ -82,18 +94,21 @@ public class FormCadastroVideoController extends AbstractController<Video> {
 
     @FXML
     void voltar(ActionEvent event) {
-
+    	listagemVideosController.abrirTela();
     }
 
     @FXML
     void cadastrar(ActionEvent event) {
-
+    	cadastrarFilme();
     }
 
+	private void cadastrarFilme() {
+		
+	}
+
 	@Override
-	public GenericDAO<Video> getDAO() {
-		// TODO Auto-generated method stub
-		return null;
+	public GenericDAO<Video> getDAO() {		
+		return videoDAO;
 	}
 
 	@Override
@@ -111,6 +126,7 @@ public class FormCadastroVideoController extends AbstractController<Video> {
 	}
 
 	private void aplicarFonte(Pane panel) {
+		lbTitulo.setFont(ApplicationUtil.getFontCaviarDreams(48));
 		ObservableList<Node> campos = panel.getChildren();
 		for (Node node : campos) {
 			if(node instanceof TextField) {
@@ -125,8 +141,7 @@ public class FormCadastroVideoController extends AbstractController<Video> {
 
 	@Override
 	public void initComponents() {
-		// TODO Auto-generated method stub
-		
+		listagemVideosController = new ListagemVideosController();
 	}
 
 	@Override
@@ -136,8 +151,6 @@ public class FormCadastroVideoController extends AbstractController<Video> {
 
 	@Override
 	public void initListeners() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

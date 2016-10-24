@@ -73,7 +73,7 @@ public class LoginController extends AbstractController<Usuario> {
     	if(!senhaUsuario.isEmpty() && !loginUsuario.isEmpty()) {
     		Usuario usuario = usuarioDAO.buscarPorEmailESenha(loginUsuario, senhaUsuario);
     		if(usuario != null) {    			
-    			getUsuarioLogado().setUsuarioLogado(usuario);
+    			getUsuarioLogado().setUsuario(usuario);
     			usuarioEncontrado = true;
     		}
     	}

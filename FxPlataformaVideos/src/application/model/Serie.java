@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import arq.dominio.model.AbstractEntity;
 
 @Table(schema="aplicacao")
-@Entity(name="serie_novela")
+@Entity(name="serie_desenho")
 public class Serie extends AbstractEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -35,8 +35,13 @@ public class Serie extends AbstractEntity {
 	private int classificacaoEtaria;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinTable(name="video_serie_novela", joinColumns={@JoinColumn(name="id_serie_novela", referencedColumnName="id")}, inverseJoinColumns={@JoinColumn(name="id_video", referencedColumnName="id")})
+    @JoinTable(name="video_serie_desenho", joinColumns={@JoinColumn(name="id_serie_desenho", referencedColumnName="id")}, inverseJoinColumns={@JoinColumn(name="id_video", referencedColumnName="id")})
 	private List<Video> videos;
+	
+	private boolean serie;
+	
+	@Column(name="imagem_path")
+	private String imagemPath;
 	
 	@Override
 	public long getId() {
@@ -69,5 +74,21 @@ public class Serie extends AbstractEntity {
 
 	public void setVideos(List<Video> videos) {
 		this.videos = videos;
+	}
+
+	public boolean isSerie() {
+		return serie;
+	}
+
+	public void setSerie(boolean serie) {
+		this.serie = serie;
+	}
+
+	public String getImagemPath() {
+		return imagemPath;
+	}
+
+	public void setImagemPath(String imagemPath) {
+		this.imagemPath = imagemPath;
 	}
 }

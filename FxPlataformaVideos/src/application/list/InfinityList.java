@@ -9,7 +9,7 @@ private T valor;
 	
 	private int index;
 	
-	public InfinityList() {
+	private InfinityList() {
 	}
 	
 	public InfinityList(T valor) {
@@ -25,7 +25,7 @@ private T valor;
 	}
 		
 	public void addNovo(T valor) {
-		if(valor == null) {
+		if(this.valor == null) {
 			this.valor = valor;
 		} else {
 			if (proximo == null) {

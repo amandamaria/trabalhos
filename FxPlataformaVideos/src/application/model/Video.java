@@ -1,5 +1,6 @@
 package application.model;
 
+import java.beans.Transient;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import arq.dominio.model.AbstractEntity;
+import javafx.scene.image.Image;
 
 @Table(schema="aplicacao")
 @Entity
@@ -32,15 +34,19 @@ public class Video extends AbstractEntity {
 	
 	private int ano;
 	
+	@Column(name="imagem_path")
+	private String imagemPath;
+	
 	@Column(name="nome_ator_principal")
 	private String nomeAtorPrincipal;
 	
+	@Column(name="nome_diretor")
 	private String diretor;
 	
 	@Column(name="classificacao_etaria")
 	private int classificacaoEtaria; 
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="genero_video", joinColumns= {@JoinColumn(name="id_video")}, inverseJoinColumns={@JoinColumn(name="id_genero")})
 	private List<Genero> generos;
 	
@@ -100,6 +106,20 @@ public class Video extends AbstractEntity {
 
 	public void setDiretor(String diretor) {
 		this.diretor = diretor;
+	}
+
+	public String getImagemPath() {
+		return imagemPath;
+	}
+
+	public void setImagemPath(String imagemPath) {
+		this.imagemPath = imagemPath;
+	}
+	
+	@Transient
+	public Image getFolder() {
+		Image folder  = new Image(imagemPath);
+		return folder;
 	}
 
 }

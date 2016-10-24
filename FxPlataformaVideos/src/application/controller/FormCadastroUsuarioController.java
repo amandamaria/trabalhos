@@ -51,6 +51,9 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 
     @FXML
     private Button btnCadastrar;
+    
+    @FXML
+    private Button btnVoltar;
 
     @FXML
     private TextField txtSobrenome;
@@ -78,10 +81,12 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
             
     private Usuario usuario;
     
+    private LoginController loginController;
+    
     public FormCadastroUsuarioController() {
     	checkGeneros = new ArrayList<>();
     	checkTiposVideo = new ArrayList<>();
-    	usuarioDAO = new UsuarioDAO();
+    	usuarioDAO = new UsuarioDAO();    	
 	}
 
 	@Override
@@ -92,10 +97,12 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 	@Override
 	public void initLayout() {
 		aplicarFonteLabels();	
-		aplicarFonteTextFields();	
+		aplicarFonte();	
 	}
 
-	private void aplicarFonteTextFields() {
+	private void aplicarFonte() {
+		btnCadastrar.setFont(ApplicationUtil.getFontCaviarDreams(14));
+		btnVoltar.setFont(ApplicationUtil.getFontCaviarDreams(14));
 		List<Node> children = gridDadosPessoais.getChildren();
 		for (Node node : children) {
 			if(node instanceof TextField) {
@@ -132,6 +139,12 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 		   usuarioDAO.salvar(usuario);
 		   entrarTelaInicial();
 	   }
+    }
+   	
+	@FXML
+    void voltar(ActionEvent event) {   		
+		loginController = new LoginController();
+		loginController.abrirTela();
     }
 
 	private boolean verificarExistenciaEmail() {

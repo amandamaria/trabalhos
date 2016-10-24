@@ -90,11 +90,12 @@
 </font></Label><GridPane layoutX="94.0" layoutY="538.0" prefHeight="25.0" prefWidth="612.0">
   <columnConstraints>
     <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+<ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
   </rowConstraints>
-<children><Button fx:id="btnCadastrar" layoutX="363.1875" layoutY="506.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f66d41; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: #ffffff;" text="CADASTRAR" />
+<children><Button fx:id="btnCadastrar" layoutX="363.1875" layoutY="506.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f66d41; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: #ffffff;" text="CADASTRAR" GridPane.columnIndex="1" /><Button fx:id="btnVoltar" layoutX="363.1875" layoutY="506.0" mnemonicParsing="false" onAction="#voltar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffffff; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: #1c495c;" text="VOLTAR" />
 </children>
 </GridPane><Label fx:id="lbTitulo" layoutX="188.0" layoutY="8.0" style="-fx-text-fill: #ffffff;" text="Cadastro de usuário" AnchorPane.topAnchor="0.0">
 <font>

@@ -28,19 +28,22 @@ CREATE TABLE aplicacao.video
    ano integer, 
    nome_diretor character varying(30),
    nome_ator_principal character varying(60), 
+   imagem_path text,
    CONSTRAINT pk_video PRIMARY KEY (id)
 ) 
 WITH (
   OIDS = FALSE
 );
 
-CREATE TABLE aplicacao.serie_novela
+CREATE TABLE aplicacao.serie_desenho
 (
    id bigint NOT NULL, 
    sinopse text, 
    classificacao_etaria integer, 
    titulo character varying(60), 
-   CONSTRAINT pk_serie_novela PRIMARY KEY (id)
+   desenho boolean,
+   imagem_path text,
+   CONSTRAINT pk_serie_desenho PRIMARY KEY (id)
 ) 
 WITH (
   OIDS = FALSE
@@ -49,9 +52,9 @@ WITH (
 CREATE TABLE aplicacao.filme
 (
    id bigint, 
-   id_filme bigint, 
+   id_video bigint, 
    CONSTRAINT pk_filme PRIMARY KEY (id), 
-   CONSTRAINT fk_video_filme FOREIGN KEY (id_filme) REFERENCES aplicacao.video (id) ON UPDATE NO ACTION ON DELETE NO ACTION
+   CONSTRAINT fk_video_filme FOREIGN KEY (id_video) REFERENCES aplicacao.video (id) ON UPDATE NO ACTION ON DELETE NO ACTION
 ) 
 WITH (
   OIDS = FALSE
@@ -81,14 +84,14 @@ WITH (
   OIDS = FALSE
 );
 
-CREATE TABLE aplicacao.video_serie_novela
+CREATE TABLE aplicacao.video_serie_desenho
 (
    id bigint,
    id_video bigint, 
-   id_serie_novela bigint, 
-   CONSTRAINT pk_video_serie_novela PRIMARY KEY (id), 
-   CONSTRAINT fk_video_video_serie_novela FOREIGN KEY (id_video) REFERENCES aplicacao.video (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
-   CONSTRAINT fk_serie_novela_video_serie_novela FOREIGN KEY (id_serie_novela) REFERENCES aplicacao.serie_novela (id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+   id_serie_desenho bigint, 
+   CONSTRAINT pk_video_serie_desenho PRIMARY KEY (id), 
+   CONSTRAINT fk_video_video_serie_desenho FOREIGN KEY (id_video) REFERENCES aplicacao.video (id) ON UPDATE NO ACTION ON DELETE NO ACTION, 
+   CONSTRAINT fk_serie_desenho_video_serie_desenho FOREIGN KEY (id_serie_desenho) REFERENCES aplicacao.serie_desenho (id) ON UPDATE NO ACTION ON DELETE NO ACTION,
    CONSTRAINT unique_id_video UNIQUE (id_video)   
 ) 
 WITH (

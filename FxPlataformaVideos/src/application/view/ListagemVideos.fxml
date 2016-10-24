@@ -28,22 +28,22 @@
 <Image url="@../../../../../../Google%20Drive/UFRN/BTI/2016.2/Desenv%20Desktop/Trabalho%20NETFLIX/Design/img-filmes/tropadeelite.jpg" />
 </image>
 </ImageView>
-<ImageView fitHeight="130.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+<ImageView fx:id="img2Filme" fitHeight="130.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../../../../../../Google%20Drive/UFRN/BTI/2016.2/Desenv%20Desktop/Trabalho%20NETFLIX/Design/img-filmes/seraqueelavolta.jpg" />
 </image>
 </ImageView>
-<ImageView fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+<ImageView fx:id="img3Filme" fitHeight="150.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../../../../../../Google%20Drive/UFRN/BTI/2016.2/Desenv%20Desktop/Trabalho%20NETFLIX/Design/img-filmes/13distrito.jpg" />
 </image>
 </ImageView>
-<ImageView fitHeight="130.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+<ImageView fx:id="img4Filme" fitHeight="130.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../../../../../../Google%20Drive/UFRN/BTI/2016.2/Desenv%20Desktop/Trabalho%20NETFLIX/Design/img-filmes/sicario.jpg" />
 </image>
 </ImageView>
-<ImageView fitHeight="110.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+<ImageView fx:id="img5Filme" fitHeight="110.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../../../../../../Google%20Drive/UFRN/BTI/2016.2/Desenv%20Desktop/Trabalho%20NETFLIX/Design/img-filmes/pulfiction.jpg" />
 </image>

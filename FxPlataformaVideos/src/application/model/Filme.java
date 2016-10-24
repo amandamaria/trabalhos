@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,8 +22,9 @@ public class Filme extends AbstractEntity {
 	@Id @GeneratedValue (strategy = GenerationType.AUTO, generator="default_sequence")
 	@SequenceGenerator(name="default_sequence", sequenceName="aplicacao.default_sequence", allocationSize = 0)
 	private long id;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER, orphanRemoval = true)
+	@JoinColumn(name = "id_video")
 	private Video video;
 	
 	@Override
