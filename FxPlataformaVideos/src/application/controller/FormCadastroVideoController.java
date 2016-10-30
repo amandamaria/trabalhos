@@ -114,7 +114,7 @@ public class FormCadastroVideoController extends AbstractController<Video> {
 
 	private boolean buscarVideo() {
 		FileChooser fileChooser = new FileChooser();
-		ExtensionFilter extFilter = new ExtensionFilter("Mídia de vídeo", "*.mp4", "*.flv");
+		ExtensionFilter extFilter = new ExtensionFilter("Mídia de vídeo", "*.mp4");
 	    fileChooser.getExtensionFilters().add(extFilter);
 	       
 	    videoSelecionado = fileChooser.showOpenDialog(getStage());	        
@@ -157,11 +157,13 @@ public class FormCadastroVideoController extends AbstractController<Video> {
 			video.setDiretor(txtDiretor.getText().trim());
 			video.setNomeAtorPrincipal(txtAtorPrincipal.getText().trim());
 			video.setSinopse(txtSinopse.getText().trim());
-			video.setImagemPath("file:///"+txtPosterFile.getText());		
+			video.setImagemPath("file:///"+txtPosterFile.getText());	
+			video.setVideoPath(txtVideoFile.getText());
+			video.getGeneros().add(comboCategoria.getValue());
 			filme.setVideo(video);
 			filmeDAO.salvar(filme);
 		} else {
-			//TODO Adicionar mensagem de erro
+			showMensagemErro("Verifique se todos os campos estão preenchidos!");
 		}
 	}
 

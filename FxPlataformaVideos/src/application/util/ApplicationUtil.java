@@ -17,6 +17,8 @@ import javafx.scene.text.Font;
 public class ApplicationUtil {
 	private static final Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
 	
+	public static final String VIDEO_DEFAULT = "http://dw.convertfiles.com/files/0476697001477779984/ramonadeskflix.mp4";
+	
 	public static double getLarguraDaTela() {
 		return tela.getWidth();
 	}

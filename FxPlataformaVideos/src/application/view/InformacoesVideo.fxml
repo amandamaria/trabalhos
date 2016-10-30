@@ -37,7 +37,7 @@
 <font>
 <Font size="14.0" />
 </font></Label>
-</children></VBox><Button fx:id="btnAssitir" layoutX="441.0" layoutY="527.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-insets: 0; -fx-background-color: #f66d41; -fx-text-fill: white;" text="ASSISTIR">
+</children></VBox><Button fx:id="btnAssitir" layoutX="441.0" layoutY="527.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 30; -fx-background-insets: 0; -fx-background-color: #f66d41; -fx-text-fill: white;" text="ASSISTIR">
 <font>
 <Font size="14.0" />
 </font>

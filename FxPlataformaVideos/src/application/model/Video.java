@@ -1,6 +1,7 @@
 package application.model;
 
 import java.beans.Transient;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,6 +33,9 @@ public class Video extends AbstractEntity {
 	
 	private String sinopse;
 	
+	@Column(name="video_path")
+	private String videoPath;
+	
 	private int ano;
 	
 	@Column(name="imagem_path")
@@ -47,9 +51,12 @@ public class Video extends AbstractEntity {
 	private int classificacaoEtaria; 
 	
 	@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="genero_video", joinColumns= {@JoinColumn(name="id_video")}, inverseJoinColumns={@JoinColumn(name="id_genero")})
+    @JoinTable(name="aplicacao.genero_video", joinColumns= {@JoinColumn(name="id_video")}, inverseJoinColumns={@JoinColumn(name="id_genero")})
 	private List<Genero> generos;
 	
+	public Video() {
+		generos = new ArrayList<Genero>();
+	}
 	
 	@Override
 	public long getId() {
@@ -120,6 +127,22 @@ public class Video extends AbstractEntity {
 	public Image getFolder() {
 		Image folder  = new Image(imagemPath);
 		return folder;
+	}
+
+	public String getVideoPath() {
+		return videoPath;
+	}
+
+	public void setVideoPath(String videoPath) {
+		this.videoPath = videoPath;
+	}
+
+	public List<Genero> getGeneros() {
+		return generos;
+	}
+
+	public void setGeneros(List<Genero> generos) {
+		this.generos = generos;
 	}
 
 }

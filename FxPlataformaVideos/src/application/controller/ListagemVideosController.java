@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
+
 import application.Main;
 import application.dominio.dao.FilmeDAO;
 import application.dominio.dao.SerieDAO;
@@ -17,6 +19,8 @@ import application.view.meuscomponentes.ImagemFilme;
 import application.view.meuscomponentes.ImagemSeriado;
 import arq.controller.AbstractController;
 import arq.dominio.hibernate.dao.GenericDAO;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,11 +31,12 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
-public class ListagemVideosController extends AbstractController<Video> {
+public class ListagemVideosController extends AbstractController<Filme> {
 	
 	private static final int PRIMEIRO_ITEM = 0;
 
@@ -79,6 +84,9 @@ public class ListagemVideosController extends AbstractController<Video> {
     
     @FXML
     private HBox boxFilmes;
+    
+    @FXML
+    private AnchorPane paneOpcoes;
 
     @FXML
     private Label lbSerie;
@@ -155,8 +163,8 @@ public class ListagemVideosController extends AbstractController<Video> {
 	}
 	
 	@Override
-	public GenericDAO<Video> getDAO() {		
-		return videoDAO;
+	public GenericDAO<Filme> getDAO() {		
+		return filmeDAO;
 	}
 
 	@Override
@@ -165,6 +173,14 @@ public class ListagemVideosController extends AbstractController<Video> {
 		aplicarFormatacaoFonte();
 		addBemVindoUsuario();		
 		exibirVideos();
+		escoderMenuOpcoes();
+	}
+
+	private void escoderMenuOpcoes() {
+		boolean administrador = getUsuarioLogado().getUsuario().isAdministrador();
+		if(!administrador) {
+			paneOpcoes.getChildren().clear();
+		}
 	}
 
 	private void exibirVideos() {
@@ -198,6 +214,8 @@ public class ListagemVideosController extends AbstractController<Video> {
 	}
 
 	private void carregarVideos() {
+		int idadeUsuario = getUsuarioLogado().getUsuario().getIdadeUsuario();
+		filmes = filmeDAO.buscarFilmesPorFaixaEtaria(idadeUsuario);
 		carregarFilmes();
 		carregarSeries();
 	}
@@ -224,8 +242,6 @@ public class ListagemVideosController extends AbstractController<Video> {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void carregarFilmes() {
-		int idadeUsuario = getUsuarioLogado().getUsuario().getIdadeUsuario();
-		filmes = filmeDAO.buscarFilmesPorFaixaEtaria(idadeUsuario);
 		if(!filmes.isEmpty()) {
 			int PRIMEIRO_ITEM = 0;
 			filmesInfinityList = new InfinityList(new ImagemFilme(filmes.get(PRIMEIRO_ITEM)));
@@ -306,6 +322,14 @@ public class ListagemVideosController extends AbstractController<Video> {
 
 	@Override
 	public void initListeners() {	
+		
+		txtBuscar.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+//				filmes = filmeDAO.buscarFilmesPorTituloEGenero(newValue);
+//				carregarFilmes();
+			}
+		});
 		btnOpcaoFilme.setOnAction(new EventHandler<ActionEvent>() {			
 			@Override
 			public void handle(ActionEvent arg0) {

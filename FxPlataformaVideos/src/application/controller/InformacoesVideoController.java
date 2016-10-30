@@ -12,6 +12,7 @@ import arq.controller.AbstractController;
 import arq.dominio.hibernate.dao.GenericDAO;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -41,6 +42,8 @@ public class InformacoesVideoController extends AbstractController<Video> {
     private ImagemSeriado imagemSerie;
     
     private ListagemVideosController listagemVideosController;
+    
+    private PlayerVideoController playerVideoController;
  		
 	public InformacoesVideoController() {
 		this.listagemVideosController = new ListagemVideosController();	
@@ -134,21 +137,20 @@ public class InformacoesVideoController extends AbstractController<Video> {
 		return Main.class.getResource("/application/view/InformacoesVideo.fxml");
 	}
 
-
     @FXML
-    void cadastrar(ActionEvent event) {
-
-    }
-
-    @FXML
-    void voltar(ActionEvent event) {
+    public void voltar(ActionEvent event) {
     	listagemVideosController.abrirTela();
     }
 	
 	@Override
 	public void initListeners() {
-		// TODO Auto-generated method stub
-		
+		btnAssitir.setOnAction(new EventHandler<ActionEvent>() {			
+			@Override
+			public void handle(ActionEvent event) {
+				playerVideoController =  new PlayerVideoController();
+				playerVideoController.abrirTela();
+			}
+		});		
 	}
 
 	public ImagemFilme getImagemFilme() {

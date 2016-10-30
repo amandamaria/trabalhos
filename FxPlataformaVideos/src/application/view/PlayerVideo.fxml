@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.PlayerVideoController">
+<padding>
+<Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+</padding>
+<opaqueInsets>
+<Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+</opaqueInsets>
+<children><Button fx:id="btnVoltar" layoutX="166.0" layoutY="335.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #f66d41; -fx-background-insets: 0; -fx-background-radius: 30; -fx-text-fill: #ffffff;" text="VOLTAR" /><AnchorPane fx:id="paneVideo" layoutY="57.0" prefHeight="270.0" prefWidth="480.0" style="-fx-border-color: #f66d41; -fx-border-width: 2px;" />
+</children></AnchorPane>

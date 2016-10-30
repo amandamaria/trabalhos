@@ -83,6 +83,8 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
     
     private LoginController loginController;
     
+    private ListagemVideosController listagemVideosController;
+    
     public FormCadastroUsuarioController() {
     	checkGeneros = new ArrayList<>();
     	checkTiposVideo = new ArrayList<>();
@@ -137,22 +139,21 @@ public class FormCadastroUsuarioController extends AbstractController<Usuario>{
 	   if(validarDadosCadastro()) {
 		   popularDadosUsuario();		   
 		   usuarioDAO.salvar(usuario);
-		   entrarTelaInicial();
+		   voltar(event);
+	   } else {
+		   showMensagemErro("Verifique se todos os campos estão preenchidos!");
 	   }
     }
    	
 	@FXML
     void voltar(ActionEvent event) {   		
 		loginController = new LoginController();
+		getUsuarioLogado().setUsuario(usuario);
 		loginController.abrirTela();
     }
 
 	private boolean verificarExistenciaEmail() {
 		return usuarioDAO.verificarExistenciaEmail(txtEmail.getText());
-	}
-
-	private void entrarTelaInicial() {
-		
 	}
 
 	private void popularDadosUsuario() {

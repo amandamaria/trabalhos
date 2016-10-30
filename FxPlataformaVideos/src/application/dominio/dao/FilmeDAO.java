@@ -24,5 +24,14 @@ public class FilmeDAO extends GenericDAO<Filme> implements FilmeHibernateDAO {
 		List<Filme> filmesEncontrados = criteria.add(Restrictions.le("video.classificacaoEtaria", idade)).list();
 		return filmesEncontrados;
 	}
+
+	@Override
+	public List<Filme> buscarFilmesPorTituloEGenero(String texto) {
+		Criteria criteria = getSession().createCriteria(Filme.class,"filme");
+		criteria.createAlias("filme.video", "video");
+		criteria.createAlias("video.generos", "genero");
+		List<Filme> filmesEncontrados = criteria.add(Restrictions.like("video.titulo", "%"+texto+"%")).add(Restrictions.like("genero.nome", "%"+texto+"%")).list();
+		return filmesEncontrados;
+	}
 	
 }
