@@ -51,7 +51,7 @@ public class TelaLoginController extends AbstractController {
     	if(verificarNome() && verificarAvatar()) {
     		irParaTelaDeGrupos();
     	} else {
-    		getMensagemAlerta().showMensagemErro("Informe seu nome e selecione um avatar!");
+    		getMensagemAlerta().showMensagemErro("Digite seu nome e selecione um avatar!");
     	}
     }
 
