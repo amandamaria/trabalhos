@@ -26,7 +26,7 @@ public class ImagemDoGrupo extends VBox {
 	
 	public ImagemDoGrupo(String urlImage) {
 		initMouseHoverGrupoListener();
-		imageView = new ImageView();	
+		imageView = new ImageView(new Image(urlImage));	
 		this.gridEstrelas = new HBox();
 		initLayout();
 		this.getChildren().addAll(imageView, gridEstrelas);
@@ -34,14 +34,17 @@ public class ImagemDoGrupo extends VBox {
 	}
 
 	private void initLayout() {
-		this.setHeight(100);
-		this.setWidth(100);
+		this.setHeight(150);
+		this.setWidth(150);
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
 		this.setBackground(new Background(new BackgroundFill(Paint.valueOf("#f5f5f5"), new CornerRadii(35), Insets.EMPTY)));
 		
+		this.imageView.setFitWidth(65);
+		this.imageView.setPreserveRatio(true);
+		
 		gridEstrelas.setSpacing(10);
-		gridEstrelas.setAlignment(Pos.CENTER);
+		gridEstrelas.setAlignment(Pos.CENTER);		
 		gridEstrelas.getChildren().addAll(new ImageView(new Image(estrelaVazia)), 
 				new ImageView(new Image(estrelaVazia)), 
 				new ImageView(new Image(estrelaVazia)));		

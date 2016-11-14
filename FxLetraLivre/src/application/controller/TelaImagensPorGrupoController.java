@@ -22,7 +22,7 @@ public class TelaImagensPorGrupoController extends AbstractController {
 	public void initComponents() {
 		int k = 0;
 		for(int i=0; i < 5;i++) {
-			for(int j=0; j<3; j++) {
+			for(int j=0; j < 3; j++) {
 				gridImagens.add(new ImagemDoGrupo(GrupoImagensUtil.IMAGENS_GRUPO_1[k]),i, j);
 				k++;
 			}
