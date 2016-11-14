@@ -1,25 +1,41 @@
 package application;
 	
+import application.controller.TelaInicialController;
+import arq.controller.NavegadorTela;
 import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
+	
+	public static Stage primaryStage;
+	
+	private NavegadorTela navegadorTela;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Main.primaryStage = primaryStage;			
+			navegadorTela = NavegadorTela.getInstace();
+			Scene scene = new Scene(navegadorTela.getRootPane());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());	
+			navegadorTela.getRootPane().getStyleClass().add("telaInicio");
+			irParaTelaInicial();
+			
 			primaryStage.setScene(scene);
+			primaryStage.setMaximized(true);			
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
+	private void irParaTelaInicial() {
+		TelaInicialController telaInicialController = new TelaInicialController();
+		telaInicialController.abrirTela();
+	}
+
 	public static void main(String[] args) {
 		launch(args);
 	}

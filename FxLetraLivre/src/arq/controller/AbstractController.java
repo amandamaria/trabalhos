@@ -1,38 +1,44 @@
 package arq.controller;
 
-
 import java.io.IOException;
 import java.net.URL;
 
 import application.Main;
-import application.model.UsuarioLogado;
 import application.util.ApplicationUtil;
-import application.view.MensagemAlerta;
-import arq.dominio.hibernate.dao.GenericDAO;
-import arq.dominio.model.AbstractEntity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public abstract class AbstractController<T extends AbstractEntity> extends MensagemAlerta {
+public abstract class AbstractController  {
 	
+	private MensagemAlerta mensagemAlerta;
+
 	private Stage stage;
 	
+	private Scene scene;
+	
 	private FXMLLoader loader;
-	
-	public abstract GenericDAO<T> getDAO();
-	
-	public abstract void initLayout();
-	
+		
 	public abstract void initComponents();
+	
+	public abstract void initLayout();	
+
+	public abstract void initListeners();
 	
 	public abstract URL getFxmlUrl();
 	
-	public abstract void initListeners();
-	
 	public AbstractController() {
-		loader = ApplicationUtil.getFXMLLoader(getFxmlUrl());		
+		loader = ApplicationUtil.getLoader(getFxmlUrl());
+		mensagemAlerta = new MensagemAlerta();
+	}
+	
+	@FXML
+	public void initialize() {
+		initComponents();
+		initLayout();
+		initListeners();
 	}
 	
 	public void abrirTela() {
@@ -44,27 +50,29 @@ public abstract class AbstractController<T extends AbstractEntity> extends Mensa
 			e.printStackTrace();
 		}
 	}
-
-	@FXML
-	public void initialize() {
-		initComponents();
-		initLayout();
-		initListeners();
+	
+	public MensagemAlerta getMensagemAlerta() {
+		return mensagemAlerta;
 	}
 	
 	public Stage getStage() {
 		return stage;
 	}
-	
+
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}
 
+	public Scene getScene() {
+		return scene;
+	}
+
+	public void setScene(Scene scene) {
+		this.scene = scene;
+	}
+	
 	public NavegadorTela getNavegadorTela() {
 		return NavegadorTela.getInstace();
 	}
 	
-	public UsuarioLogado getUsuarioLogado() {
-		return UsuarioLogado.getInstance();
-	}
 }

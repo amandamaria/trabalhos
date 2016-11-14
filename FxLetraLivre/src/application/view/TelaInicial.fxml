@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaInicialController">
+<children><Button fx:id="btnIniciar" layoutX="629.0" layoutY="233.0" mnemonicParsing="false" onAction="#iniciar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnCreditos" layoutX="629.0" layoutY="304.0" mnemonicParsing="false" onAction="#verCreditos" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" />
+</children></AnchorPane>

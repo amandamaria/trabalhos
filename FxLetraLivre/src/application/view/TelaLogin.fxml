@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaLoginController">
+<children><GridPane fx:id="gridAvatar" hgap="5.0" layoutX="609.0" layoutY="283.0" maxHeight="300.0" maxWidth="300.0" prefHeight="220.0" prefWidth="220.0" vgap="5.0">
+<children>
+<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+<image>
+<Image url="@../../../../../../Desktop/colaboracao.jpg" />
+</image>
+</ImageView>
+<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" GridPane.columnIndex="1">
+<image>
+<Image url="@../../../../../../Pictures/Wallpaper_ti.jpg" />
+</image>
+</ImageView>
+<ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" GridPane.rowIndex="1">
+<image>
+<Image url="@../../../../../../Pictures/foto2.jpg" />
+</image>
+</ImageView>
+<ImageView fitHeight="100.0" fitWidth="100.0" layoutX="392.0" layoutY="219.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+<image>
+<Image url="@../../../../../../Pictures/foto.jpg" />
+</image>
+</ImageView>
+</children>
+<columnConstraints>
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="150.0" />
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="150.0" />
+</columnConstraints>
+<rowConstraints>
+<RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+<RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+</rowConstraints>
+</GridPane><Button fx:id="btnAvancar" layoutX="728.0" layoutY="511.0" mnemonicParsing="false" onAction="#avancar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnVoltar" layoutX="526.0" layoutY="511.0" mnemonicParsing="false" onAction="#voltar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><VBox alignment="CENTER" layoutX="544.0" layoutY="151.0" prefHeight="138.0" prefWidth="349.0" spacing="7.0">
+<children><Label fx:id="lbNome" layoutX="609.0" layoutY="154.0" text="Qual o seu nome?" textFill="WHITESMOKE">
+<font>
+<Font size="20.0" />
+</font></Label><TextField fx:id="txtNome" alignment="CENTER" layoutX="539.0" layoutY="190.0" prefHeight="60.0" prefWidth="349.0" style="-fx-cursor: text; -fx-background-radius: 30; -fx-background-insets: 0;">
+<font>
+<Font size="24.0" />
+</font></TextField><Label fx:id="lbAvatar" layoutX="614.0" layoutY="256.0" text="Escolha seu avatar" textFill="WHITESMOKE">
+<font>
+<Font size="20.0" />
+</font></Label>
+</children></VBox>
+</children></AnchorPane>

@@ -1,1 +1,57 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+/* Application */
+
+.button:hover {
+	-fx-cursor: hand ;
+}
+
+/* Tela incial */
+
+.telaInicio {
+	-fx-background-image: url("/resources/template/tela1/background.png");
+	-fx-background-position: center;
+}
+
+.telaInicio #btnIniciar {
+	-fx-background-image: url("/resources/template/tela1/btniniciar.png");
+}
+
+
+.telaInicio #btnCreditos {
+	-fx-background-image: url("/resources/template/tela1/btncreditos.png");
+}
+
+
+/*Tela de login */
+
+.telaLogin {
+	-fx-background-image: url("/resources/template/tela2/background.png");
+	-fx-background-position: center;
+}
+
+.telaLogin #btnVoltar {
+	-fx-background-image: url("/resources/template/tela2/btnvoltar.png");
+}
+
+.telaLogin #btnAvancar {
+	-fx-background-image: url("/resources/template/tela2/btnavancar.png");
+}
+
+.telaLogin #txtNome {
+	-fx-background-image: url("/resources/template/tela2/inputnome.png");
+}
+
+/* Tela de seleção de grupo de palavras */
+
+.telaGrupoImagens {
+	-fx-background-image: url("/resources/template/tela3/background.png");
+}
+
+.telaGrupoImagens #btnVoltar {
+	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+}
+
+.telaGrupoImagens #btnAjuda {
+	-fx-background-image: url("/resources/template/tela3/btnajuda.png");
+}
