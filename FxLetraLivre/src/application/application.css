@@ -55,3 +55,13 @@
 .telaGrupoImagens #btnAjuda {
 	-fx-background-image: url("/resources/template/tela3/btnajuda.png");
 }
+
+.paneGrupo:hover {
+	-fx-cursor: hand;
+}
+
+/* Tela seleção de imagem */
+
+.telaSelecaoImagem {
+	-fx-background-color: #f8f8f8;
+}

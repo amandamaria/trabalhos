@@ -1,18 +1,16 @@
 package application.controller;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+
+import com.sun.javafx.iio.png.PNGIDATChunkInputStream;
 
 import application.Main;
-import application.view.meuscomponentes.GrupoImagens;
 import arq.controller.AbstractController;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -39,10 +37,10 @@ public class TelaGrupoImagensController extends AbstractController {
     
     @FXML
     private Button btnAjuda;
-    
-    private List<GrupoImagens> grupos;
-    
+       
     private TelaLoginController telaLoginController;
+    
+    private TelaImagensPorGrupoController telaImagensPorGrupoController;
     
     @FXML
     public void voltar(ActionEvent event) {
@@ -57,32 +55,26 @@ public class TelaGrupoImagensController extends AbstractController {
     	
 	@Override
 	public void initComponents() {
-		initGruposDeImagens();
-	}
-
-	private void initGruposDeImagens() {
-		ObservableList<Node> children = pane.getChildren();	
-		ObservableList<Node> auxiliar = FXCollections.observableArrayList();
-		grupos = new ArrayList<GrupoImagens>();
-		for (Node node : children) {
-			if(node instanceof VBox) {
-				auxiliar.add(node);
-				GrupoImagens grupoImagens = (GrupoImagens) node;
-				grupos.add(grupoImagens);
-			}
-		}
-		children.removeAll(auxiliar);
-		children.addAll(grupos);
+		
 	}
 
 	@Override
 	public void initLayout() {
 		pane.getStyleClass().add("telaGrupoImagens");
+		paneGrupo1.getStyleClass().add("paneGrupo");
+		paneGrupo2.getStyleClass().add("paneGrupo");
+		paneGrupo3.getStyleClass().add("paneGrupo");
+		paneGrupo4.getStyleClass().add("paneGrupo");
 	}
 
 	@Override
 	public void initListeners() {
-		
+		paneGrupo1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				telaImagensPorGrupoController = new TelaImagensPorGrupoController();
+				telaImagensPorGrupoController.abrirTela();
+			}
+		});
 	}
 
 	@Override

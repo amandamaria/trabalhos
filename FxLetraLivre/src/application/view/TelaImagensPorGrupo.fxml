@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
-
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaImagensPorGrupoController">
+<children><ImageView fitHeight="656.0" fitWidth="1120.0" layoutX="123.0" layoutY="14.0" pickOnBounds="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+<image>
+<Image url="@../../resources/template/tela4/background.png" />
+</image>
+</ImageView><GridPane fx:id="gridImagens" hgap="40.0" layoutX="218.0" layoutY="60.0" vgap="40.0">
+  <columnConstraints>
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>
+</children></AnchorPane>
