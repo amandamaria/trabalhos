@@ -20,7 +20,7 @@ public class Main extends Application {
 			navegadorTela = NavegadorTela.getInstace();
 			Scene scene = new Scene(navegadorTela.getRootPane());
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());	
-			navegadorTela.getRootPane().getStyleClass().add("telaInicio");
+			navegadorTela.getRootPane().getStyleClass().add("rootPainel");
 			irParaTelaInicial();
 			
 			primaryStage.setScene(scene);

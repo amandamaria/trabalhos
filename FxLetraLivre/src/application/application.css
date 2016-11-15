@@ -2,6 +2,10 @@
 
 /* Application */
 
+.rootPainel {
+	-fx-background-color: #b2bac3;
+}
+
 .button:hover {
 	-fx-cursor: hand ;
 }
@@ -63,5 +67,13 @@
 /* Tela seleção de imagem */
 
 .telaSelecaoImagem {
-	-fx-background-color: #f8f8f8;
+	-fx-background-color: #b2bac3;
+}
+
+.telaSelecaoImagem #btnVoltar {
+	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+}
+
+.telaSelecaoImagem #btnAjuda {
+	-fx-background-image: url("/resources/template/tela3/btnajuda.png");
 }

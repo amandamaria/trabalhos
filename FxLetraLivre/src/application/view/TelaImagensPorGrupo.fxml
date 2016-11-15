@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -22,5 +23,5 @@
     <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="150.0" minHeight="150.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
-</GridPane>
+</GridPane><Button fx:id="btnVoltar" layoutX="123.0" layoutY="630.0" mnemonicParsing="false" onAction="#voltar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnAjuda" layoutX="1189.0" layoutY="25.0" mnemonicParsing="false" onAction="#exibirAjuda" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" />
 </children></AnchorPane>

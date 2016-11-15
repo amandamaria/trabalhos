@@ -1,11 +1,11 @@
 package application.view.meuscomponentes;
 
-import java.awt.GridLayout;
-
+import application.util.GrupoImagensUtil;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -24,31 +24,49 @@ public class ImagemDoGrupo extends VBox {
 	
 	private HBox gridEstrelas;
 	
-	public ImagemDoGrupo(String urlImage) {
+	private int idGrupo;
+	
+	public ImagemDoGrupo(String urlImage, int idGrupo) {
 		initMouseHoverGrupoListener();
-		imageView = new ImageView(new Image(urlImage));	
+		this.idGrupo = idGrupo;
+		imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+urlImage));	
 		this.gridEstrelas = new HBox();
 		initLayout();
-		this.getChildren().addAll(imageView, gridEstrelas);
-		
+		this.getChildren().addAll(imageView, gridEstrelas);		
 	}
 
 	private void initLayout() {
-		this.setHeight(150);
-		this.setWidth(150);
+		this.setHeight(200);
+		this.setWidth(200);
 		this.setAlignment(Pos.CENTER);
 		this.setSpacing(10);
+		this.setPadding(new Insets(10, 10, 10, 10));
 		this.setBackground(new Background(new BackgroundFill(Paint.valueOf("#f5f5f5"), new CornerRadii(35), Insets.EMPTY)));
 		
-		this.imageView.setFitWidth(65);
+		this.imageView.setFitWidth(100);
 		this.imageView.setPreserveRatio(true);
 		
 		gridEstrelas.setSpacing(10);
 		gridEstrelas.setAlignment(Pos.CENTER);		
-		gridEstrelas.getChildren().addAll(new ImageView(new Image(estrelaVazia)), 
-				new ImageView(new Image(estrelaVazia)), 
-				new ImageView(new Image(estrelaVazia)));		
+		gridEstrelas.getChildren().addAll(getEstrelasObtidas());		
 		
+	}
+
+	private ImageView[] getEstrelasObtidas() {
+		ImageView estrela1 = new ImageView(new Image(estrelaVazia)); 
+		estrela1.setFitHeight(25);
+		estrela1.setPreserveRatio(true);
+		
+		ImageView estrela2 = new ImageView(new Image(estrelaVazia)); 
+		estrela2.setFitHeight(25);
+		estrela2.setPreserveRatio(true);
+		
+		ImageView estrela3 = new ImageView(new Image(estrelaVazia)); 
+		estrela3.setFitHeight(25);
+		estrela3.setPreserveRatio(true);
+		
+		ImageView[] estrelasObtidas = {estrela1, estrela2, estrela3};
+		return estrelasObtidas;
 	}
 
 	private void initMouseHoverGrupoListener() {
@@ -62,6 +80,10 @@ public class ImagemDoGrupo extends VBox {
 				setCursor(Cursor.DEFAULT);
 			}
 		});
+	}
+
+	public int getIdGrupo() {
+		return idGrupo;
 	}
 
 }
