@@ -95,3 +95,21 @@
 .telaJogo #btnVoltar {
 	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
 }
+
+/* Tela Menu Jogo */
+
+.telaMenuJogo #btnContinuar {
+	-fx-background-image: url("/resources/template/tela5/btncontinuar.png");
+}
+
+.telaMenuJogo #btnReiniciar {
+	-fx-background-image: url("/resources/template/tela5/btnrestart.png");
+}
+
+.telaMenuJogo #btnIrParaInicio {
+	-fx-background-image: url("/resources/template/tela5/btnhome.png");
+}
+
+.telaMenuJogo #btnMudarPalavra {
+	-fx-background-image: url("/resources/template/tela5/btnfases.png");
+}

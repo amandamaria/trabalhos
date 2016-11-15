@@ -18,6 +18,8 @@ import javafx.scene.layout.GridPane;
 
 public class TelaImagensPorGrupoController extends AbstractController {
 	
+	public static String[] imagens;
+	
 	@FXML 
 	private AnchorPane pane;
 	
@@ -58,12 +60,14 @@ public class TelaImagensPorGrupoController extends AbstractController {
 
 	private void gerarImagensDoGrupo() {
 		int k = 0;
-		for(int i=0; i < 5;i++) {
-			for(int j=0; j < 3; j++) {
-				gridImagens.add(new ImagemDoGrupo(GrupoImagensUtil.IMAGENS_GRUPO_1[k], i+1),i, j);
-				k++;
-			}
-		}		
+		if(imagens != null) {
+			for(int i=0; i < 5;i++) {
+				for(int j=0; j < 3; j++) {
+					gridImagens.add(new ImagemDoGrupo(imagens[k]), i, j);
+					k++;
+				}
+			}		
+		}
 	}
 
 	@Override

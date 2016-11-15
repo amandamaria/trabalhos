@@ -22,15 +22,12 @@ public class ImagemDoGrupo extends VBox {
 	private ImageView imageView;
 	
 	private HBox gridEstrelas;
-	
-	private int idGrupo;
-	
+		
 	private String nomeImage;
 	
-	public ImagemDoGrupo(String nomeImage, int idGrupo) {
+	public ImagemDoGrupo(String nomeImage) {
 		initMouseHoverGrupoListener();
 		this.nomeImage = nomeImage;
-		this.idGrupo = idGrupo;
 		this.imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+nomeImage));	
 		this.gridEstrelas = new HBox();
 		initLayout();
@@ -82,10 +79,6 @@ public class ImagemDoGrupo extends VBox {
 				setCursor(Cursor.DEFAULT);
 			}
 		});
-	}
-
-	public int getIdGrupo() {
-		return idGrupo;
 	}
 
 	public Image getImagemJogo() {

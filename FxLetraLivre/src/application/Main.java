@@ -24,7 +24,8 @@ public class Main extends Application {
 			irParaTelaInicial();
 			
 			primaryStage.setScene(scene);
-			primaryStage.setMaximized(true);			
+			primaryStage.setMaximized(true);
+			primaryStage.setTitle("Letra Livre 2.0");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

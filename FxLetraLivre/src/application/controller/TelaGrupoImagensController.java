@@ -3,6 +3,7 @@ package application.controller;
 import java.net.URL;
 
 import application.Main;
+import application.util.GrupoImagensUtil;
 import arq.controller.AbstractController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -69,10 +70,36 @@ public class TelaGrupoImagensController extends AbstractController {
 	public void initListeners() {
 		paneGrupo1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				telaImagensPorGrupoController = new TelaImagensPorGrupoController();
-				telaImagensPorGrupoController.abrirTela();
+				TelaImagensPorGrupoController.imagens = GrupoImagensUtil.IMAGENS_GRUPO_1;
+				abrirTelaImagensPorGrupo();
 			}
 		});
+		
+		paneGrupo2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				TelaImagensPorGrupoController.imagens = GrupoImagensUtil.IMAGENS_GRUPO_2;
+				abrirTelaImagensPorGrupo();
+			}
+		});
+		
+		paneGrupo3.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				TelaImagensPorGrupoController.imagens = GrupoImagensUtil.IMAGENS_GRUPO_3;
+				abrirTelaImagensPorGrupo();
+			}
+		});
+		
+		paneGrupo4.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent event) {
+				TelaImagensPorGrupoController.imagens = GrupoImagensUtil.IMAGENS_GRUPO_4;
+				abrirTelaImagensPorGrupo();
+			}
+		});
+	}
+
+	private void abrirTelaImagensPorGrupo() {
+		telaImagensPorGrupoController = new TelaImagensPorGrupoController();				
+		telaImagensPorGrupoController.abrirTela();
 	}
 
 	@Override

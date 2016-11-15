@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class TelaJogoController extends AbstractController {
 	
@@ -65,8 +66,14 @@ public class TelaJogoController extends AbstractController {
     }
     
     @FXML
-    void pausarJogo(ActionEvent event) {
-    	
+    void pausarJogo(ActionEvent event) {    	
+    	try {
+    		PopupMenuJogo popupMenuJogo  = new PopupMenuJogo();
+			popupMenuJogo.start(new Stage());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML

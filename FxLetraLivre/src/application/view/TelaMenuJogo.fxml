@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:controller="application.controller.TelaMenuJogoController" fx:id="pane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f5f5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<children><ImageView fx:id="imgEstrela2" fitHeight="77.0" fitWidth="80.0" layoutX="260.0" layoutY="14.0" pickOnBounds="true">
+<image>
+<Image url="@../../resources/template/tela5/starcinza.png" />
+</image></ImageView><ImageView fx:id="imgEstrela3" fitHeight="77.0" fitWidth="80.0" layoutX="350.0" layoutY="64.0" pickOnBounds="true">
+<image>
+<Image url="@../../resources/template/tela5/starcinza.png" />
+</image>
+</ImageView><ImageView fx:id="imgEstrela1" fitHeight="77.0" fitWidth="80.0" layoutX="170.0" layoutY="64.0" pickOnBounds="true">
+<image>
+<Image url="@../../resources/template/tela5/starcinza.png" />
+</image>
+</ImageView><Label fx:id="lbTempo" layoutX="236.0" layoutY="172.0" text="00:00:00">
+<font>
+<Font size="50.0" />
+</font></Label><ImageView fitHeight="49.0" fitWidth="45.0" layoutX="181.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../../resources/template/tela5/icontimer.png" />
+</image></ImageView><HBox alignment="CENTER" layoutX="130.0" layoutY="261.0" prefHeight="100.0" prefWidth="340.0" spacing="20.0">
+<children><Button fx:id="btnReiniciar" layoutX="395.0" layoutY="283.0" mnemonicParsing="false" onAction="#reiniciarJogo" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50;" /><Button fx:id="btnMudarPalavra" layoutX="305.0" layoutY="283.0" mnemonicParsing="false" onAction="#voltarListaPalavras" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50;" /><Button fx:id="btnContinuar" layoutX="212.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnContinuar" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50;" /><Button fx:id="btnIrParaInicio" layoutX="119.0" layoutY="283.0" mnemonicParsing="false" onAction="#irParaInicio" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50;" />
+</children></HBox>
+</children></AnchorPane>
