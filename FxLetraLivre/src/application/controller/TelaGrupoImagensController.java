@@ -2,8 +2,6 @@ package application.controller;
 
 import java.net.URL;
 
-import com.sun.javafx.iio.png.PNGIDATChunkInputStream;
-
 import application.Main;
 import arq.controller.AbstractController;
 import javafx.event.ActionEvent;

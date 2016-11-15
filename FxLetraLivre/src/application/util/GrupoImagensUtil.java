@@ -8,6 +8,8 @@ public class GrupoImagensUtil {
 	
 	public static final String PATH_IMAGENS_GRUPO_TELA_4 = "/resources/template/tela4/";
 	
+	public static final String PATH_IMAGENS_GRUPO_JOGO = "/resources/imagens/fases/";
+	
 	public static final String[] IMAGENS_GRUPO_1 = {
 			"grupo1/abelha.png",
 			"grupo1/anjo.png",

@@ -77,3 +77,21 @@
 .telaSelecaoImagem #btnAjuda {
 	-fx-background-image: url("/resources/template/tela3/btnajuda.png");
 }
+
+/* Tela jogo */
+
+.telaJogo #btnAjuda {
+	-fx-background-image: url("/resources/template/tela3/btnajuda.png");
+}
+
+.telaJogo #btnReplay {
+	-fx-background-image: url("/resources/template/tela6/btnsoundon.png");
+}
+
+.telaJogo #btnPause {
+	-fx-background-image: url("/resources/template/tela6/btnpause.png");
+}
+
+.telaJogo #btnVoltar {
+	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+}

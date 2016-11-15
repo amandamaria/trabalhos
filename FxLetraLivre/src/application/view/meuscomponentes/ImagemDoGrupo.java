@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,10 +25,13 @@ public class ImagemDoGrupo extends VBox {
 	
 	private int idGrupo;
 	
-	public ImagemDoGrupo(String urlImage, int idGrupo) {
+	private String nomeImage;
+	
+	public ImagemDoGrupo(String nomeImage, int idGrupo) {
 		initMouseHoverGrupoListener();
+		this.nomeImage = nomeImage;
 		this.idGrupo = idGrupo;
-		imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+urlImage));	
+		this.imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+nomeImage));	
 		this.gridEstrelas = new HBox();
 		initLayout();
 		this.getChildren().addAll(imageView, gridEstrelas);		
@@ -86,4 +88,7 @@ public class ImagemDoGrupo extends VBox {
 		return idGrupo;
 	}
 
+	public Image getImagemJogo() {
+		return new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_JOGO+nomeImage);
+	}
 }
