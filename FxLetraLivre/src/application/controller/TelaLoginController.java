@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import application.Main;
+import application.dominio.dao.UsuarioDAO;
+import application.model.Usuario;
 import application.util.ApplicationUtil;
 import application.util.LoginUtil;
 import application.view.meuscomponentes.SelectOneImage;
@@ -45,17 +47,57 @@ public class TelaLoginController extends AbstractController {
     private TelaGrupoImagensController telaGrupoImagensController;
     
     private List<SelectOneImage> imagensAvatar;
+    
+    private UsuarioDAO usuarioDAO;
+    
+    private Usuario usuario;
 
     @FXML
     void avancar(ActionEvent event) {
     	if(verificarNome() && verificarAvatar()) {
-    		irParaTelaDeGrupos();
+    		if(verificarExistenciaDoNome()) {
+    			if(getMensagemAlerta().showMensagemOpcoes("Já existe alguém com esse nome.")) {
+    				getUsuarioLogado().setUsuario(usuario);
+    				atualizarAvatar();
+    				irParaTelaDeGrupos();
+    			} else {
+    				txtNome.requestFocus();
+    			}
+    		} else {
+    			cadastrarUsuario();
+    			getUsuarioLogado().setUsuario(usuario);
+    			irParaTelaDeGrupos();
+    		}        		
     	} else {
     		getMensagemAlerta().showMensagemErro("Informe seu nome e selecione um avatar!");
     	}
     }
 
-    private void irParaTelaDeGrupos() {
+    private void atualizarAvatar() {
+    	for (SelectOneImage selectOneImage : imagensAvatar) {
+			if(selectOneImage.isSelecionado()) {
+				usuario.setCodigoAvatar(selectOneImage.getCodigoImagem());
+			}
+		}
+		usuarioDAO.salvar(getUsuarioLogado().getUsuario());
+	}
+
+	private void cadastrarUsuario() {
+    	popularInformacoesUsuario();
+		usuarioDAO.salvar(usuario);
+	}
+
+	private boolean verificarExistenciaDoNome() {
+    	boolean nomeDeUsuarioJaExiste = false;
+		Usuario usuarioEncontrado = usuarioDAO.buscarPorNome(txtNome.getText());
+		if(usuarioEncontrado != null) {
+			usuario = usuarioEncontrado;
+			nomeDeUsuarioJaExiste = true;
+		}
+		return nomeDeUsuarioJaExiste;
+	}
+
+	private void irParaTelaDeGrupos() {
     	telaGrupoImagensController = new TelaGrupoImagensController();
     	telaGrupoImagensController.abrirTela();
 	}
@@ -74,9 +116,19 @@ public class TelaLoginController extends AbstractController {
 	private boolean verificarNome() {
 		boolean nomeValido = true;
 		if(txtNome.getText().trim().isEmpty()) {
+			popularInformacoesUsuario();
 			nomeValido = false;
 		}
 		return nomeValido;
+	}
+
+	private void popularInformacoesUsuario() {
+		usuario.setNome(txtNome.getText());
+		for (SelectOneImage selectOneImage : imagensAvatar) {
+			if(selectOneImage.isSelecionado()) {
+				usuario.setCodigoAvatar(selectOneImage.getCodigoImagem());
+			}				
+		}		
 	}
 
 	@FXML
@@ -91,6 +143,8 @@ public class TelaLoginController extends AbstractController {
 
 	@Override
 	public void initComponents() {
+		usuario = new Usuario();
+		usuarioDAO = new UsuarioDAO();
 		initImagensAvatar();
 	}
 
@@ -101,7 +155,8 @@ public class TelaLoginController extends AbstractController {
 		for(int i= 0; i < 2; i++) {
 			for(int j = 0; j < 2; j++) {
 				SelectOneImage imageViewAvatar = new SelectOneImage(LoginUtil.URL_IMAGENS_AVATAR[k], 
-										LoginUtil.URL_IMAGENS_AVATAR_SELECIONADO[k], gridAvatar);				
+										LoginUtil.URL_IMAGENS_AVATAR_SELECIONADO[k], gridAvatar);
+				imageViewAvatar.setCodigoImagem(k);
 				k++;
 				gridAvatar.add(imageViewAvatar, i, j);
 				imagensAvatar.add(imageViewAvatar);				

@@ -1,8 +1,14 @@
 package application.controller;
 
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Timer;
 
 import application.Main;
+import application.dominio.dao.PalavraConcluidaDAO;
+import application.model.Palavra;
+import application.model.PalavraConcluida;
+import application.util.GrupoImagensUtil;
 import arq.controller.AbstractController;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -13,15 +19,20 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class TelaJogoController extends AbstractController {
 	
 	private static final int UM_SEGUNDO = 1000;
 	
-	public static Image imagemSelecionada;
+	public static Palavra palavraSelecionada;
 	
 	@FXML
 	private AnchorPane pane;
@@ -54,11 +65,17 @@ public class TelaJogoController extends AbstractController {
     
     private Task taskRelogio;
     
-    private Thread threadRelegio;
+    public static Thread threadRelegio;
     
-    private boolean palavraNaoConcluida;
+    public static boolean palavraNaoConcluida;
     
     private int tempoGastoEmSegundos;
+    
+    private PopupMenuJogo popupMenuJogo;
+    
+    private PalavraConcluidaDAO palavraConcluidaDAO;
+    
+    private PalavraConcluida palavraConcluida;
 
     @FXML
     void exibirAjuda(ActionEvent event) {    	
@@ -68,10 +85,8 @@ public class TelaJogoController extends AbstractController {
     @FXML
     void pausarJogo(ActionEvent event) {    	
     	try {
-    		PopupMenuJogo popupMenuJogo  = new PopupMenuJogo();
 			popupMenuJogo.start(new Stage());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }
@@ -81,8 +96,14 @@ public class TelaJogoController extends AbstractController {
     	reproduzirAudio();
     }
 
-    private void reproduzirAudio() {
-		
+    private void reproduzirAudio() {    	
+		try {
+			Media hit = new Media(Main.class.getResource(GrupoImagensUtil.PATH_AUDIOS_GRUPO_JOGO+palavraSelecionada.getMnemonicAudioPath()).toURI().toString());
+			MediaPlayer mediaPlayer = new MediaPlayer(hit);
+			mediaPlayer.play();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -93,6 +114,8 @@ public class TelaJogoController extends AbstractController {
 
 	@Override
 	public void initComponents() {
+		popupMenuJogo = new PopupMenuJogo();
+		palavraConcluidaDAO = new PalavraConcluidaDAO();
 		palavraNaoConcluida = true;
 		tempoGastoEmSegundos = 0;
 	}
@@ -105,8 +128,9 @@ public class TelaJogoController extends AbstractController {
 	}
 
 	private void carregarImagem() {
-		if(imagemSelecionada != null) {
-			imagem.setImage(imagemSelecionada);
+		if(palavraSelecionada != null) {
+			Image imagemPalavra = new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_JOGO+palavraSelecionada.getMnemonicImagePath());			
+			imagem.setImage(imagemPalavra);
 			imagem.setFitHeight(460);
 			imagem.setPreserveRatio(true);
 		}
@@ -114,42 +138,99 @@ public class TelaJogoController extends AbstractController {
 
 	@Override
 	public void initListeners() {
-		iniciarRelogio();		
+		iniciarRelogio();
+		txtPalavra.setOnKeyPressed(new javafx.event.EventHandler<KeyEvent>() {
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.ENTER || txtPalavra.getText().length() == GrupoImagensUtil.TAMANHO_MAIOR_PALAVRA) {
+					if(txtPalavra.getText().trim().equalsIgnoreCase(palavraSelecionada.getTexto())) {
+		        		finalizarJogo();
+		        	} else {	        		
+		        		finalizarTentativa();
+		        	}
+				}
+			}
+		});
 	}
 
+	private void finalizarTentativa() {
+		Label lbTentativa = new Label(txtPalavra.getText().trim());
+		lbTentativa.setFont(Font.font("arial", 18));
+		gridTentativas.getChildren().add(lbTentativa);
+		txtPalavra.clear();
+	}
+	
+    private void finalizarJogo() {
+		try {
+			palavraNaoConcluida = false;
+			cadastrarPalavraConcluida();
+			popupMenuJogo.start(new Stage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+		taskRelogio.cancel();
+	}
+
+    private void cadastrarPalavraConcluida() {
+		palavraConcluida = palavraJaConcluida();
+		if(palavraConcluida != null) {
+			alterarTempoSeMelhor();
+		} else {
+			palavraConcluida = new PalavraConcluida();
+			palavraConcluida.setUsuario(getUsuarioLogado().getUsuario());
+			palavraConcluida.setPalavra(palavraSelecionada);
+			palavraConcluida.setTempo(tempoGastoEmSegundos);
+	    	palavraConcluidaDAO.salvar(palavraConcluida);	
+		}		
+	}
+
+	private void alterarTempoSeMelhor() {
+		if(palavraConcluida.getTempo() > tempoGastoEmSegundos) {
+			palavraConcluida.setTempo(tempoGastoEmSegundos);
+			palavraConcluidaDAO.salvar(palavraConcluida);
+		}
+	}
+
+	private PalavraConcluida palavraJaConcluida() {
+		long idUsuario = getUsuarioLogado().getUsuario().getId();
+		long idPalavra = palavraSelecionada.getId();
+		PalavraConcluida palavraConcluida = palavraConcluidaDAO.buscarPorUsuarioEPalavra(idUsuario, idPalavra);
+		return palavraConcluida;
+	}
+
+	
 	private void iniciarRelogio() {
-		taskRelogio = new Task() {
+		taskRelogio = new Task() {					
 			@Override
 			protected Object call() throws Exception {
+				Thread.sleep(UM_SEGUNDO);
 				int segundo = 0;
 				int minuto = 0;
 				int hora = 0;
-				Thread.sleep(UM_SEGUNDO);
 				while (palavraNaoConcluida) {
-                    segundo++;
+	                segundo++;
+	                
+	                if (segundo == 60) {
+	                    minuto++;
+	                    segundo = 0;
+	                }
 
-                    if (segundo == 60) {
-                        minuto++;
-                        segundo = 0;
-                    }
+	                if (minuto == 60) {
+	                    hora++;
+	                    minuto = 0;
+	                }
+	                final String hr = hora <= 9 ? "0" + hora : hora + "";
+	                final String min = minuto <= 9 ? "0" + minuto : minuto + "";
+	                final String seg = segundo <= 9 ? "0" + segundo : segundo + "";
 
-                    if (minuto == 60) {
-                        hora++;
-                        minuto = 0;
-                    }
-                    final String hr = hora <= 9 ? "0" + hora : hora + "";
-                    final String min = minuto <= 9 ? "0" + minuto : minuto + "";
-                    final String seg = segundo <= 9 ? "0" + segundo : segundo + "";
-
-                    Platform.runLater(new Runnable() {
+	                Platform.runLater(new Runnable() {
 						public void run() {
 						    lbTempo.setText(hr + ":" + min + ":" + seg);
 						}
 					});
-                    Thread.sleep(UM_SEGUNDO);
-                    tempoGastoEmSegundos++;
-                }
-                return null;
+	                tempoGastoEmSegundos++;		
+	                Thread.sleep(UM_SEGUNDO);
+				}
+				return null;
 			}
 		};
 		threadRelegio = new Thread(taskRelogio);

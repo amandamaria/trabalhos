@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import application.Main;
+import application.model.UsuarioLogado;
 import application.util.ApplicationUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -73,6 +74,10 @@ public abstract class AbstractController  {
 	
 	public NavegadorTela getNavegadorTela() {
 		return NavegadorTela.getInstace();
+	}
+	
+	public UsuarioLogado getUsuarioLogado() {
+		return UsuarioLogado.getInstance();
 	}
 	
 }

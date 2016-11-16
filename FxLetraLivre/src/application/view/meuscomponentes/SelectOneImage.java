@@ -8,7 +8,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -18,6 +17,8 @@ import javafx.scene.paint.Color;
 public class SelectOneImage extends ImageView {
 	
 	private boolean selecionado;
+	
+	private int codigoImagem;
 	
 	private SelectOneImage imageViewAuxiliar;
 	
@@ -107,6 +108,14 @@ public class SelectOneImage extends ImageView {
 	public void setSelecionado(boolean selecionado) {
 		this.selecionado = selecionado;
 		mudarSelecao();
+	}
+
+	public int getCodigoImagem() {
+		return codigoImagem;
+	}
+
+	public void setCodigoImagem(int codigoImagem) {
+		this.codigoImagem = codigoImagem;
 	}
 	
 }

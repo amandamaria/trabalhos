@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #b2bbc4;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.TelaJogoController">
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #b2bbc4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaJogoController">
 <children>
 <VBox alignment="CENTER" layoutX="234.0" layoutY="112.0" prefHeight="469.0" prefWidth="602.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50;">
 <children><ImageView fx:id="imagem" fitHeight="150.0" fitWidth="200.0" layoutX="201.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
@@ -19,7 +19,7 @@
 <children><Label text="Tentativas" textFill="#313f33">
 <font>
 <Font name="System Bold" size="22.0" />
-</font></Label><VBox fx:id="gridTentativas" alignment="CENTER" prefHeight="502.0" prefWidth="268.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50;" />
+</font></Label><VBox fx:id="gridTentativas" alignment="TOP_CENTER" prefHeight="502.0" prefWidth="268.0" spacing="7.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50;" />
 </children>
 <padding>
 <Insets top="10.0" />

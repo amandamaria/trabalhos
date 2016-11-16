@@ -1,5 +1,6 @@
 package application.view.meuscomponentes;
 
+import application.model.Palavra;
 import application.util.GrupoImagensUtil;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -17,18 +18,19 @@ import javafx.scene.paint.Paint;
 
 public class ImagemDoGrupo extends VBox {
 	
-	private static final String estrelaVazia = "/resources/template/tela4/starcinza.png";
+	private static final String ESTRELA_CINZA = "/resources/template/tela4/starcinza.png";
+	private static final String ESTRELA_AMARELA = "/resources/template/tela4/staramarela.png";
 	
 	private ImageView imageView;
 	
 	private HBox gridEstrelas;
-		
-	private String nomeImage;
+			
+	private Palavra palavra;
 	
-	public ImagemDoGrupo(String nomeImage) {
+	public ImagemDoGrupo(Palavra palavra) {
 		initMouseHoverGrupoListener();
-		this.nomeImage = nomeImage;
-		this.imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+nomeImage));	
+		this.palavra = palavra;
+		this.imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+palavra.getMnemonicImagePath()));	
 		this.gridEstrelas = new HBox();
 		initLayout();
 		this.getChildren().addAll(imageView, gridEstrelas);		
@@ -52,19 +54,28 @@ public class ImagemDoGrupo extends VBox {
 	}
 
 	private ImageView[] getEstrelasObtidas() {
-		ImageView estrela1 = new ImageView(new Image(estrelaVazia)); 
-		estrela1.setFitHeight(25);
-		estrela1.setPreserveRatio(true);
-		
-		ImageView estrela2 = new ImageView(new Image(estrelaVazia)); 
-		estrela2.setFitHeight(25);
-		estrela2.setPreserveRatio(true);
-		
-		ImageView estrela3 = new ImageView(new Image(estrelaVazia)); 
-		estrela3.setFitHeight(25);
-		estrela3.setPreserveRatio(true);
-		
-		ImageView[] estrelasObtidas = {estrela1, estrela2, estrela3};
+		ImageView[] estrelasObtidas = new ImageView[3];
+		if(palavra.getMelhorTempo() == 0) {
+			estrelasObtidas[0] = criarImagemEstrela(ESTRELA_CINZA);
+			estrelasObtidas[1] = criarImagemEstrela(ESTRELA_CINZA);
+			estrelasObtidas[2] = criarImagemEstrela(ESTRELA_CINZA);
+			
+		} else if(palavra.getMelhorTempo() > 0 && palavra.getMelhorTempo() <= 30) {			
+			estrelasObtidas[0] = criarImagemEstrela(ESTRELA_AMARELA);
+			estrelasObtidas[1] = criarImagemEstrela(ESTRELA_AMARELA);
+			estrelasObtidas[2] = criarImagemEstrela(ESTRELA_AMARELA);
+			
+		} else if(palavra.getMelhorTempo() > 30 && palavra.getMelhorTempo() <= 90) {
+			estrelasObtidas[0] = criarImagemEstrela(ESTRELA_AMARELA);
+			estrelasObtidas[1] = criarImagemEstrela(ESTRELA_AMARELA);
+			estrelasObtidas[2] = criarImagemEstrela(ESTRELA_CINZA);
+			
+		} else {			
+			estrelasObtidas[0] = criarImagemEstrela(ESTRELA_AMARELA);
+			estrelasObtidas[1] = criarImagemEstrela(ESTRELA_CINZA);
+			estrelasObtidas[2] = criarImagemEstrela(ESTRELA_CINZA);
+			
+		}		
 		return estrelasObtidas;
 	}
 
@@ -80,8 +91,23 @@ public class ImagemDoGrupo extends VBox {
 			}
 		});
 	}
+	
+	private ImageView criarImagemEstrela(String path) {
+		ImageView estrela = new ImageView(new Image(path)); 
+		estrela.setFitHeight(25);
+		estrela.setPreserveRatio(true);		
+		return estrela;
+	}
 
 	public Image getImagemJogo() {
-		return new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_JOGO+nomeImage);
+		return new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_JOGO+palavra.getMnemonicImagePath());
+	}
+
+	public Palavra getPalavra() {
+		return palavra;
+	}
+
+	public void setPalavra(Palavra palavra) {
+		this.palavra = palavra;
 	}
 }

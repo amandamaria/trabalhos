@@ -113,3 +113,14 @@
 .telaMenuJogo #btnMudarPalavra {
 	-fx-background-image: url("/resources/template/tela5/btnfases.png");
 }
+
+/* Tela de créditos */
+
+.telaCreditos {
+	-fx-background-image: url("/resources/template/tela2/background.png");
+	-fx-background-position: center;
+}
+
+.telaCreditos #btnVoltar {
+	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+}

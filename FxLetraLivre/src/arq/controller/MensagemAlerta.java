@@ -2,6 +2,7 @@ package arq.controller;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class MensagemAlerta {
 	
@@ -13,11 +14,17 @@ public class MensagemAlerta {
 		showMensagem(AlertType.INFORMATION, "AJUDA", mensagem);
 	}
 	
-	private void showMensagem(AlertType alertType, String tituloJanela, String mensagem) {
+	public boolean showMensagemOpcoes(String mensagem) {
+		Alert alert = showMensagem(AlertType.CONFIRMATION, "Deseja continuar", mensagem);
+		return alert.getResult().equals(ButtonType.OK);
+	}
+	
+	private Alert showMensagem(AlertType alertType, String tituloJanela, String mensagem) {
 		Alert alert = new Alert(alertType);
 		alert.setTitle(tituloJanela);
 		alert.setHeaderText(tituloJanela);
 		alert.setContentText(mensagem);
-		alert.showAndWait();
+		alert.showAndWait();		
+		return alert;
 	}
 }

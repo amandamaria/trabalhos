@@ -67,4 +67,6 @@ public abstract class AbstractController<T extends AbstractEntity> extends Mensa
 	public UsuarioLogado getUsuarioLogado() {
 		return UsuarioLogado.getInstance();
 	}
+	
+	
 }

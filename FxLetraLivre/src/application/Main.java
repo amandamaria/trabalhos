@@ -1,6 +1,7 @@
 package application;
 	
 import application.controller.TelaInicialController;
+import application.model.UsuarioLogado;
 import arq.controller.NavegadorTela;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -36,8 +37,13 @@ public class Main extends Application {
 		TelaInicialController telaInicialController = new TelaInicialController();
 		telaInicialController.abrirTela();
 	}
-
+	
 	public static void main(String[] args) {
 		launch(args);
+		System.exit(0);
+	}
+	
+	public static UsuarioLogado getUsuarioLogado() {
+		return UsuarioLogado.getInstance();
 	}
 }

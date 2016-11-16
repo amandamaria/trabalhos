@@ -22,6 +22,8 @@ public class TelaInicialController extends AbstractController {
     
     private TelaLoginController telaLoginController;
     
+    private TelaCreditosController telaCreditosController;
+    
     @FXML
     void iniciar(ActionEvent event) {
     	abrirTelaLogin();
@@ -34,12 +36,13 @@ public class TelaInicialController extends AbstractController {
 
 	@FXML
     void verCreditos(ActionEvent event) {
-		
+		telaCreditosController = new TelaCreditosController();
+		telaCreditosController.abrirTela();
     }
 
 	@Override
 	public void initComponents() {
-		// TODO Auto-generated method stub		
+		getUsuarioLogado().setUsuario(null);
 	}
 
 	@Override

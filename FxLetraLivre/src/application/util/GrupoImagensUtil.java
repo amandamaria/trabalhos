@@ -2,13 +2,19 @@ package application.util;
 
 public class GrupoImagensUtil {
 	
-	private static final int QTD_GRUPOS = 4;
+	public static final int QTD_IMAGENS_POR_GRUPO = 15;
 	
-	private static final int QTD_IMAGENS_POR_GRUPO = 15;
+	public static final int GRUPO_1 = 1;
+	public static final int GRUPO_2 = 2;
+	public static final int GRUPO_3 = 3;
+	public static final int GRUPO_4 = 4;
+	public static final int TAMANHO_MAIOR_PALAVRA = 11;
 	
 	public static final String PATH_IMAGENS_GRUPO_TELA_4 = "/resources/template/tela4/";
 	
 	public static final String PATH_IMAGENS_GRUPO_JOGO = "/resources/imagens/fases/";
+	
+	public static final String PATH_AUDIOS_GRUPO_JOGO = "/resources/audios/fases/";
 	
 	public static final String[] IMAGENS_GRUPO_1 = {
 			"grupo1/abelha.png",
@@ -25,8 +31,27 @@ public class GrupoImagensUtil {
 			"grupo1/ovo.png",
 			"grupo1/policial.png",
 			"grupo1/rato.png",
-			"grupo1/saci.png",
+			"grupo1/saci.png"
 	};
+	
+	public static final String[] AUDIOS_GRUPO_1 = {
+			"grupo1/abelha.mpeg",
+			"grupo1/anjo.mpeg",
+			"grupo1/bicicleta.mpeg",
+			"grupo1/bola.mpeg",
+			"grupo1/bomba.mpeg",
+			"grupo1/caixa.mpeg",
+			"grupo1/carro.mpeg",
+			"grupo1/chave.mpeg",
+			"grupo1/foguete.mpeg",
+			"grupo1/galinha.mpeg",
+			"grupo1/girafa.mpeg",
+			"grupo1/ovo.mpeg",
+			"grupo1/policial.mpeg",
+			"grupo1/rato.mpeg",
+			"grupo1/saci.mpeg"
+	};
+	
 	public static final String[] IMAGENS_GRUPO_2 = {
 			"grupo2/abacaxi.png",
 			"grupo2/anel.png",
@@ -43,6 +68,24 @@ public class GrupoImagensUtil {
 			"grupo2/quadro.png",
 			"grupo2/sino.png",
 			"grupo2/tesoura.png",
+	};
+	
+	public static final String[] AUDIOS_GRUPO_2 = {
+			"grupo2/abacaxi.mpeg",
+			"grupo2/anel.mpeg",
+			"grupo2/aranha.mpeg",
+			"grupo2/bolsa.mpeg",
+			"grupo2/borracha.mpeg",
+			"grupo2/cachimbo.mpeg",
+			"grupo2/casa.mpeg",
+			"grupo2/elefante.mpeg",
+			"grupo2/flauta.mpeg",
+			"grupo2/lanterna.mpeg",
+			"grupo2/lixeira.mpeg",
+			"grupo2/pente.mpeg",
+			"grupo2/quadro.mpeg",
+			"grupo2/sino.mpeg",
+			"grupo2/tesoura.mpeg",
 	};
 	public static final String[] IMAGENS_GRUPO_3 = {
 			"grupo3/astronauta.png",
@@ -61,6 +104,7 @@ public class GrupoImagensUtil {
 			"grupo3/travesseiro.png",
 			"grupo3/xicara.png",
 	};
+	
 	public static final String[] IMAGENS_GRUPO_4 = {
 			"grupo4/arvore.png",
 			"grupo4/aquario.png",
@@ -78,13 +122,5 @@ public class GrupoImagensUtil {
 			"grupo4/sanduiche.png",
 			"grupo4/violao.png",
 	};
-	
-	public static String[][] TODOS_OS_GRUPOS = new String[QTD_GRUPOS][QTD_IMAGENS_POR_GRUPO];
-	
-	static {
-		TODOS_OS_GRUPOS[0] = IMAGENS_GRUPO_1;
-		TODOS_OS_GRUPOS[1] = IMAGENS_GRUPO_2;
-		TODOS_OS_GRUPOS[2] = IMAGENS_GRUPO_3;
-		TODOS_OS_GRUPOS[3] = IMAGENS_GRUPO_4;
-	}
+
 }

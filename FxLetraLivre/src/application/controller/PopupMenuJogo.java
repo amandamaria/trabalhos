@@ -10,7 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PopupMenuJogo extends Application {
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		//Carregando fxml da tela de menu
@@ -31,5 +31,4 @@ public class PopupMenuJogo extends Application {
 		
 		primaryStage.show();
 	}
-
 }
