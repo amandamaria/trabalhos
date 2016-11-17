@@ -7,7 +7,7 @@ import application.Main;
 import application.dominio.dao.PalavraConcluidaDAO;
 import application.model.PalavraConcluida;
 import application.util.ApplicationUtil;
-import application.util.GrupoImagensUtil;
+import application.util.GrupoPalavrasUtil;
 import arq.controller.AbstractController;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,7 +65,12 @@ public class TelaGrupoImagensController extends AbstractController {
 	@Override
 	public void initComponents() {
 		palavraConcluidaDAO = new PalavraConcluidaDAO();
-		palavrasConcluidas = getUsuarioLogado().getUsuario().getPalavrasConcluidas();
+		palavrasConcluidas = getPalavrasConcluidasPorUsuario();
+	}
+
+	private List<PalavraConcluida> getPalavrasConcluidasPorUsuario() {
+		long idUsuario = getUsuarioLogado().getUsuario().getId();
+		return palavraConcluidaDAO.getPalavrasConcluidasPorUsuario(idUsuario);
 	}
 
 	@Override
@@ -79,10 +84,10 @@ public class TelaGrupoImagensController extends AbstractController {
 	}
 
 	private void mudarTextoLabelsGrupos() {
-		mudarTextoLabelsPorGrupo(paneGrupo1, GrupoImagensUtil.GRUPO_1);
-		mudarTextoLabelsPorGrupo(paneGrupo2, GrupoImagensUtil.GRUPO_2);
-		mudarTextoLabelsPorGrupo(paneGrupo3, GrupoImagensUtil.GRUPO_3);
-		mudarTextoLabelsPorGrupo(paneGrupo4, GrupoImagensUtil.GRUPO_4);
+		mudarTextoLabelsPorGrupo(paneGrupo1, GrupoPalavrasUtil.GRUPO_1);
+		mudarTextoLabelsPorGrupo(paneGrupo2, GrupoPalavrasUtil.GRUPO_2);
+		mudarTextoLabelsPorGrupo(paneGrupo3, GrupoPalavrasUtil.GRUPO_3);
+		mudarTextoLabelsPorGrupo(paneGrupo4, GrupoPalavrasUtil.GRUPO_4);
 	}
 
 	private void mudarTextoLabelsPorGrupo(VBox panel, int grupo) {
@@ -97,7 +102,7 @@ public class TelaGrupoImagensController extends AbstractController {
 				} else if(lbTotalDePalavras == null) {
 					lbTotalDePalavras = (Label) node;
 					int totalDePalavrasConlcuidas = contarPalavrasPorGrupo(grupo);
-					lbTotalDePalavras.setText(totalDePalavrasConlcuidas+"/"+GrupoImagensUtil.QTD_IMAGENS_POR_GRUPO);
+					lbTotalDePalavras.setText(totalDePalavrasConlcuidas+"/"+GrupoPalavrasUtil.QTD_IMAGENS_POR_GRUPO);
 				} else if (lbMelhorTempo == null) {
 					lbTotalDePalavras = (Label) node;
 					lbTotalDePalavras.setText(getMelhorTempoDoGrupo(grupo));
@@ -128,28 +133,28 @@ public class TelaGrupoImagensController extends AbstractController {
 	public void initListeners() {
 		paneGrupo1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				TelaImagensPorGrupoController.grupo= GrupoImagensUtil.GRUPO_1;
+				TelaImagensPorGrupoController.grupo= GrupoPalavrasUtil.GRUPO_1;
 				abrirTelaImagensPorGrupo();
 			}
 		});
 		
 		paneGrupo2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				TelaImagensPorGrupoController.grupo= GrupoImagensUtil.GRUPO_2;
+				TelaImagensPorGrupoController.grupo= GrupoPalavrasUtil.GRUPO_2;
 				abrirTelaImagensPorGrupo();
 			}
 		});
 		
 		paneGrupo3.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				TelaImagensPorGrupoController.grupo= GrupoImagensUtil.GRUPO_3;
+				TelaImagensPorGrupoController.grupo= GrupoPalavrasUtil.GRUPO_3;
 				abrirTelaImagensPorGrupo();
 			}
 		});
 		
 		paneGrupo4.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent event) {
-				TelaImagensPorGrupoController.grupo= GrupoImagensUtil.GRUPO_4;
+				TelaImagensPorGrupoController.grupo= GrupoPalavrasUtil.GRUPO_4;
 				abrirTelaImagensPorGrupo();
 			}
 		});

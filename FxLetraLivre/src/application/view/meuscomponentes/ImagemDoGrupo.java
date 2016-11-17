@@ -1,7 +1,7 @@
 package application.view.meuscomponentes;
 
 import application.model.Palavra;
-import application.util.GrupoImagensUtil;
+import application.util.GrupoPalavrasUtil;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -30,7 +30,7 @@ public class ImagemDoGrupo extends VBox {
 	public ImagemDoGrupo(Palavra palavra) {
 		initMouseHoverGrupoListener();
 		this.palavra = palavra;
-		this.imageView = new ImageView(new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_TELA_4+palavra.getMnemonicImagePath()));	
+		this.imageView = new ImageView(new Image(GrupoPalavrasUtil.PATH_IMAGENS_GRUPO_TELA_4+palavra.getMnemonicImagePath()));	
 		this.gridEstrelas = new HBox();
 		initLayout();
 		this.getChildren().addAll(imageView, gridEstrelas);		
@@ -100,7 +100,7 @@ public class ImagemDoGrupo extends VBox {
 	}
 
 	public Image getImagemJogo() {
-		return new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_JOGO+palavra.getMnemonicImagePath());
+		return new Image(GrupoPalavrasUtil.PATH_IMAGENS_GRUPO_JOGO+palavra.getMnemonicImagePath());
 	}
 
 	public Palavra getPalavra() {

@@ -8,7 +8,7 @@ import application.dominio.dao.PalavraConcluidaDAO;
 import application.dominio.dao.PalavraDAO;
 import application.model.Palavra;
 import application.model.PalavraConcluida;
-import application.util.GrupoImagensUtil;
+import application.util.GrupoPalavrasUtil;
 import application.view.meuscomponentes.ImagemDoGrupo;
 import arq.controller.AbstractController;
 import javafx.collections.ObservableList;
@@ -67,20 +67,20 @@ public class TelaImagensPorGrupoController extends AbstractController {
 
 	private void buscarImagens() {
 		switch (grupo) {
-		case GrupoImagensUtil.GRUPO_1:
+		case GrupoPalavrasUtil.GRUPO_1:
 			palavras = getImagensGrupo1();
 			break;
-		case GrupoImagensUtil.GRUPO_2:
+		case GrupoPalavrasUtil.GRUPO_2:
 			palavras = getImagensGrupo2();
 			break;
-		case GrupoImagensUtil.GRUPO_3:
+		case GrupoPalavrasUtil.GRUPO_3:
 			palavras = getImagensGrupo3();
 			break;
-		case GrupoImagensUtil.GRUPO_4:
+		case GrupoPalavrasUtil.GRUPO_4:
 			palavras = getImagensGrupo4();
 			break;
 		default:
-			System.err.println("GRUPO INVÁLIDO");
+			System.err.println("GRUPO INVï¿½LIDO");
 			break;
 		}
 	}
@@ -131,28 +131,28 @@ public class TelaImagensPorGrupoController extends AbstractController {
 	}
 	
 	public List<Palavra> getImagensGrupo1() {
-		return getPalavrarPorGrupo(GrupoImagensUtil.GRUPO_1, GrupoImagensUtil.IMAGENS_GRUPO_1, GrupoImagensUtil.AUDIOS_GRUPO_1);
+		return getPalavrarPorGrupo(GrupoPalavrasUtil.GRUPO_1, GrupoPalavrasUtil.IMAGENS_GRUPO_1, GrupoPalavrasUtil.AUDIOS_GRUPO_1);
 	}
 	
 	public List<Palavra> getImagensGrupo2() {
-		return getPalavrarPorGrupo(GrupoImagensUtil.GRUPO_2, GrupoImagensUtil.IMAGENS_GRUPO_2, GrupoImagensUtil.AUDIOS_GRUPO_2);
+		return getPalavrarPorGrupo(GrupoPalavrasUtil.GRUPO_2, GrupoPalavrasUtil.IMAGENS_GRUPO_2, GrupoPalavrasUtil.AUDIOS_GRUPO_2);
 	}
 	
 	public List<Palavra> getImagensGrupo3() {
-		return getPalavrarPorGrupo(GrupoImagensUtil.GRUPO_3, GrupoImagensUtil.IMAGENS_GRUPO_3, GrupoImagensUtil.AUDIOS_GRUPO_1);
+		return getPalavrarPorGrupo(GrupoPalavrasUtil.GRUPO_3, GrupoPalavrasUtil.IMAGENS_GRUPO_3, GrupoPalavrasUtil.AUDIOS_GRUPO_3);
 	}
 	
 	public List<Palavra> getImagensGrupo4() {
-		return getPalavrarPorGrupo(GrupoImagensUtil.GRUPO_4, GrupoImagensUtil.IMAGENS_GRUPO_4, GrupoImagensUtil.AUDIOS_GRUPO_1);
+		return getPalavrarPorGrupo(GrupoPalavrasUtil.GRUPO_4, GrupoPalavrasUtil.IMAGENS_GRUPO_4, GrupoPalavrasUtil.AUDIOS_GRUPO_4);
 	}
 	
 	private List<Palavra> getPalavrarPorGrupo(int grupo1, String[] imagensGrupo1, String[] audiosGrupo1) {
 		List<Palavra> palavrasGrupo1 = palavraDAO.buscarPalavrasPorGrupo(grupo1);
-		for (int i = 0; i < GrupoImagensUtil.QTD_IMAGENS_POR_GRUPO; i++) {
+		for (int i = 0; i < GrupoPalavrasUtil.QTD_IMAGENS_POR_GRUPO; i++) {
 			palavrasGrupo1.get(i).setMnemonicImagePath(imagensGrupo1[i]);
 			palavrasGrupo1.get(i).setMnemonicAudioPath(audiosGrupo1[i]);
 		}
-		//Popular tempo se palavra concluida pelo usuário
+		//Popular tempo se palavra concluida pelo usuï¿½rio
 		long idUsuario = getUsuarioLogado().getUsuario().getId();
 		List<PalavraConcluida> palavrasConcluidasDoUsuario = palavraConcluidaDAO.getPalavrasConcluidasPorUsuario(idUsuario);
 		for (Palavra palavra : palavrasGrupo1) {

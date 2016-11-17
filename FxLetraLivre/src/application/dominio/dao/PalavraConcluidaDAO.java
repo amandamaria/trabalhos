@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
@@ -51,9 +52,16 @@ public class PalavraConcluidaDAO extends GenericDAO<PalavraConcluida> implements
 	public List<PalavraConcluida> getPalavrasConcluidasPorUsuario(long idUsuario) {
 		List<PalavraConcluida> list = new ArrayList<PalavraConcluida>();
 		Criteria criteria = getSession().createCriteria(PalavraConcluida.class)
-				.createAlias("usuario", "u")
-				.createAlias("palavra", "p")
-				.add(Restrictions.eq("u.id", idUsuario));
+				.add(Restrictions.eq("usuario.id", idUsuario));
+		list = criteria.list();
+		return list;
+	}
+	
+	public List<PalavraConcluida> buscar10MelhoresPontuacoes(int maximoDeResultados) {
+		List<PalavraConcluida> list = new ArrayList<PalavraConcluida>();
+		Criteria criteria = getSession().createCriteria(PalavraConcluida.class)
+				.addOrder(Order.asc("tempo"))
+				.setMaxResults(maximoDeResultados);
 		list = criteria.list();
 		return list;
 	}

@@ -1,6 +1,6 @@
 package application.util;
 
-public class GrupoImagensUtil {
+public class GrupoPalavrasUtil {
 	
 	public static final int QTD_IMAGENS_POR_GRUPO = 15;
 	
@@ -67,7 +67,7 @@ public class GrupoImagensUtil {
 			"grupo2/pente.png",
 			"grupo2/quadro.png",
 			"grupo2/sino.png",
-			"grupo2/tesoura.png",
+			"grupo2/tesoura.png"
 	};
 	
 	public static final String[] AUDIOS_GRUPO_2 = {
@@ -85,7 +85,7 @@ public class GrupoImagensUtil {
 			"grupo2/pente.mpeg",
 			"grupo2/quadro.mpeg",
 			"grupo2/sino.mpeg",
-			"grupo2/tesoura.mpeg",
+			"grupo2/tesoura.mpeg"
 	};
 	public static final String[] IMAGENS_GRUPO_3 = {
 			"grupo3/astronauta.png",
@@ -96,20 +96,38 @@ public class GrupoImagensUtil {
 			"grupo3/guitarra.png",
 			"grupo3/helicoptero.png",
 			"grupo3/lampada.png",
-			"grupo3/palha�o.png",
+			"grupo3/palhaço.png",
 			"grupo3/professor.png",
 			"grupo3/queijo.png",
 			"grupo3/relogio.png",
 			"grupo3/taxi.png",
 			"grupo3/travesseiro.png",
-			"grupo3/xicara.png",
+			"grupo3/xicara.png"
+	};
+	
+	public static final String[] AUDIOS_GRUPO_3 = {
+			"grupo3/astronauta.mp3",
+			"grupo3/cachorro.mp3",
+			"grupo3/esqueleto.mp3",
+			"grupo3/esquilo.mp3",
+			"grupo3/girassol.mp3",
+			"grupo3/guitarra.mp3",
+			"grupo3/helicoptero.mp3",
+			"grupo3/lampada.mp3",
+			"grupo3/palhaço.mp3",
+			"grupo3/professora.mp3",
+			"grupo3/queijo.mp3",
+			"grupo3/relogio.mp3",
+			"grupo3/taxi.mp3",
+			"grupo3/travesseiro.mp3",
+			"grupo3/xicara.mp3"
 	};
 	
 	public static final String[] IMAGENS_GRUPO_4 = {
 			"grupo4/arvore.png",
 			"grupo4/aquario.png",
 			"grupo4/bombeiro.png",
-			"grupo4/cal�a.png",
+			"grupo4/calça.png",
 			"grupo4/cenoura.png",
 			"grupo4/chapeu.png",
 			"grupo4/coracao.png",
@@ -120,7 +138,24 @@ public class GrupoImagensUtil {
 			"grupo4/indio.png",
 			"grupo4/polvo.png",
 			"grupo4/sanduiche.png",
-			"grupo4/violao.png",
+			"grupo4/violao.png"
 	};
 
+	public static final String[] AUDIOS_GRUPO_4 = {
+			"grupo4/arvore.mp3",
+			"grupo4/aquario.mp3",
+			"grupo4/bombeiro.mp3",
+			"grupo4/calça.mp3",
+			"grupo4/cenoura.mp3",
+			"grupo4/chapeu.mp3",
+			"grupo4/coracao.mp3",
+			"grupo4/dinheiro.mp3",
+			"grupo4/funil.mp3",
+			"grupo4/garrafa.mp3",
+			"grupo4/hipopotamo.mp3",
+			"grupo4/indio.mp3",
+			"grupo4/polvo.mp3",
+			"grupo4/sanduiche.mp3",
+			"grupo4/violao.mp3"
+	};
 }

@@ -15,7 +15,7 @@ public class MensagemAlerta {
 	}
 	
 	public boolean showMensagemOpcoes(String mensagem) {
-		Alert alert = showMensagem(AlertType.CONFIRMATION, "Deseja continuar", mensagem);
+		Alert alert = showMensagem(AlertType.CONFIRMATION, "DESEJA CONTINUAR?", mensagem);
 		return alert.getResult().equals(ButtonType.OK);
 	}
 	

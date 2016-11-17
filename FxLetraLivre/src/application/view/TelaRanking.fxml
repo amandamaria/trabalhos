@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.TelaRankingController">
+<children><GridPane fx:id="gridRanking" layoutX="528.0" layoutY="210.0" prefHeight="345.0" prefWidth="445.0" vgap="7.0">
+  <columnConstraints>
+<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="339.0" minWidth="10.0" prefWidth="88.0" />
+    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="192.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="199.0" minWidth="10.0" prefWidth="199.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><Label fx:id="lbNome" text="Nome" textFill="WHITESMOKE" GridPane.columnIndex="1">
+<font>
+<Font size="20.0" />
+</font></Label><Label fx:id="lbMelhorTempo" text="Melhor tempo" textFill="WHITESMOKE" GridPane.columnIndex="2">
+<font>
+<Font size="20.0" />
+</font></Label>
+</children>
+</GridPane><Label fx:id="lbTitulo" layoutX="697.0" layoutY="165.0" text="Ranking" textFill="WHITESMOKE">
+<font>
+<Font size="30.0" />
+</font></Label><Button fx:id="btnVoltar" layoutX="154.0" layoutY="529.0" mnemonicParsing="false" onAction="#voltar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" />
+</children></AnchorPane>

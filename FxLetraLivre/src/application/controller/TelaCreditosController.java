@@ -49,10 +49,12 @@ public class TelaCreditosController extends AbstractController {
 		String[] sonoplasta = {"Isis Ramona", "Sonoplasta / Designer"};
 		String[] desenvolvedora1 = {"Amanda Maria", "Desenvolvedora / Animadora"};
 		String[] desenvolvedora2 = {"Maria Clara", "Desenvolvedora / Animadora"};
+		String[] colaborador = {"Samuel Dantas", "Colaborador"};
 		
 		informacaoDosAutores.add(sonoplasta);
 		informacaoDosAutores.add(desenvolvedora1);
-		informacaoDosAutores.add(desenvolvedora2);
+		informacaoDosAutores.add(desenvolvedora2);	
+		informacaoDosAutores.add(colaborador);	
 	}
 
 	@Override

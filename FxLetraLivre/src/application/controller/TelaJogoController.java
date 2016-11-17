@@ -8,7 +8,7 @@ import application.Main;
 import application.dominio.dao.PalavraConcluidaDAO;
 import application.model.Palavra;
 import application.model.PalavraConcluida;
-import application.util.GrupoImagensUtil;
+import application.util.GrupoPalavrasUtil;
 import arq.controller.AbstractController;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -98,7 +98,7 @@ public class TelaJogoController extends AbstractController {
 
     private void reproduzirAudio() {    	
 		try {
-			Media hit = new Media(Main.class.getResource(GrupoImagensUtil.PATH_AUDIOS_GRUPO_JOGO+palavraSelecionada.getMnemonicAudioPath()).toURI().toString());
+			Media hit = new Media(Main.class.getResource(GrupoPalavrasUtil.PATH_AUDIOS_GRUPO_JOGO+palavraSelecionada.getMnemonicAudioPath()).toURI().toString());
 			MediaPlayer mediaPlayer = new MediaPlayer(hit);
 			mediaPlayer.play();
 		} catch (URISyntaxException e) {
@@ -129,7 +129,7 @@ public class TelaJogoController extends AbstractController {
 
 	private void carregarImagem() {
 		if(palavraSelecionada != null) {
-			Image imagemPalavra = new Image(GrupoImagensUtil.PATH_IMAGENS_GRUPO_JOGO+palavraSelecionada.getMnemonicImagePath());			
+			Image imagemPalavra = new Image(GrupoPalavrasUtil.PATH_IMAGENS_GRUPO_JOGO+palavraSelecionada.getMnemonicImagePath());			
 			imagem.setImage(imagemPalavra);
 			imagem.setFitHeight(460);
 			imagem.setPreserveRatio(true);
@@ -141,7 +141,7 @@ public class TelaJogoController extends AbstractController {
 		iniciarRelogio();
 		txtPalavra.setOnKeyPressed(new javafx.event.EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
-				if(event.getCode() == KeyCode.ENTER || txtPalavra.getText().length() == GrupoImagensUtil.TAMANHO_MAIOR_PALAVRA) {
+				if(event.getCode() == KeyCode.ENTER || txtPalavra.getText().length() == GrupoPalavrasUtil.TAMANHO_MAIOR_PALAVRA) {
 					if(txtPalavra.getText().trim().equalsIgnoreCase(palavraSelecionada.getTexto())) {
 		        		finalizarJogo();
 		        	} else {	        		

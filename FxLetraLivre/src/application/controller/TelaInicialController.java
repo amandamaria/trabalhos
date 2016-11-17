@@ -14,6 +14,9 @@ public class TelaInicialController extends AbstractController {
 	@FXML
     private Button btnCreditos;
 
+	@FXML
+    private Button btnRanking;
+
     @FXML
     private AnchorPane pane;
 
@@ -23,6 +26,8 @@ public class TelaInicialController extends AbstractController {
     private TelaLoginController telaLoginController;
     
     private TelaCreditosController telaCreditosController;
+    
+    private TelaRankingController telaRankingController;
     
     @FXML
     void iniciar(ActionEvent event) {
@@ -38,6 +43,12 @@ public class TelaInicialController extends AbstractController {
     void verCreditos(ActionEvent event) {
 		telaCreditosController = new TelaCreditosController();
 		telaCreditosController.abrirTela();
+    }
+	
+	@FXML
+    void verRanking(ActionEvent event) {
+		telaRankingController = new TelaRankingController();
+		telaRankingController.abrirTela();
     }
 
 	@Override

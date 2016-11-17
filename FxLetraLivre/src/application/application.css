@@ -26,6 +26,10 @@
 	-fx-background-image: url("/resources/template/tela1/btncreditos.png");
 }
 
+.telaInicio #btnRanking {
+	-fx-background-image: url("/resources/template/tela1/btnranking.png");
+}
+
 
 /*Tela de login */
 
@@ -46,7 +50,7 @@
 	-fx-background-image: url("/resources/template/tela2/inputnome.png");
 }
 
-/* Tela de seleção de grupo de palavras */
+/* Tela de seleï¿½ï¿½o de grupo de palavras */
 
 .telaGrupoImagens {
 	-fx-background-image: url("/resources/template/tela3/background.png");
@@ -64,7 +68,7 @@
 	-fx-cursor: hand;
 }
 
-/* Tela seleção de imagem */
+/* Tela seleï¿½ï¿½o de imagem */
 
 .telaSelecaoImagem {
 	-fx-background-color: #b2bac3;
@@ -114,7 +118,7 @@
 	-fx-background-image: url("/resources/template/tela5/btnfases.png");
 }
 
-/* Tela de créditos */
+/* Tela de crï¿½ditos */
 
 .telaCreditos {
 	-fx-background-image: url("/resources/template/tela2/background.png");
@@ -122,5 +126,15 @@
 }
 
 .telaCreditos #btnVoltar {
+	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+}
+
+/* Tela de ranking */
+.telaRanking {
+	-fx-background-image: url("/resources/template/tela2/background.png");
+	-fx-background-position: center;
+}
+
+.telaRanking #btnVoltar {
 	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
 }
