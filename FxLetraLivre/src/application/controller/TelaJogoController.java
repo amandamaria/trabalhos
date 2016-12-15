@@ -8,6 +8,7 @@ import application.Main;
 import application.dominio.dao.PalavraConcluidaDAO;
 import application.model.Palavra;
 import application.model.PalavraConcluida;
+import application.util.ApplicationUtil;
 import application.util.GrupoPalavrasUtil;
 import arq.controller.AbstractController;
 import javafx.application.Platform;
@@ -67,7 +68,7 @@ public class TelaJogoController extends AbstractController {
     
     public static Thread threadRelegio;
     
-    public static boolean palavraNaoConcluida;
+    protected boolean palavraNaoConcluida;
     
     private int tempoGastoEmSegundos;
     
@@ -76,6 +77,8 @@ public class TelaJogoController extends AbstractController {
     private PalavraConcluidaDAO palavraConcluidaDAO;
     
     private PalavraConcluida palavraConcluida;
+    
+    private Stage stageMenu;
 
     @FXML
     void exibirAjuda(ActionEvent event) {    	
@@ -85,7 +88,8 @@ public class TelaJogoController extends AbstractController {
     @FXML
     void pausarJogo(ActionEvent event) {    	
     	try {
-			popupMenuJogo.start(new Stage());
+    		stageMenu = new Stage();
+			popupMenuJogo.start(stageMenu);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -123,6 +127,7 @@ public class TelaJogoController extends AbstractController {
 	@Override
 	public void initLayout() {
 		pane.getStyleClass().add("telaJogo");
+		txtPalavra.setFont(ApplicationUtil.getFontCaviarDreams(20));		
 		carregarImagem();
 		reproduzirAudio();
 	}

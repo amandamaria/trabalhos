@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import arq.dominio.model.AbstractEntity;
@@ -19,8 +18,7 @@ public class PalavraConcluida extends AbstractEntity {
 	
 	private static final long serialVersionUID = 1L;
 
-	@Id @GeneratedValue (strategy = GenerationType.AUTO, generator="default_sequence")
-	@SequenceGenerator(name="default_sequence", sequenceName="aplicacao.default_sequence", allocationSize = 0)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(name="tempo_milisegundos")

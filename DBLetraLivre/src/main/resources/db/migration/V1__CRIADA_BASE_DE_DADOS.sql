@@ -7,7 +7,7 @@ CREATE TABLE aplicacao.usuario
    id bigint NOT NULL, 
    nome character varying(20),
    codigo_avatar int,
-   CONSTRAINT pk_usuario PRIMARY KEY (id)
+   pk_usuario PRIMARY KEY (id)
 ) 
 WITH (
   OIDS = FALSE

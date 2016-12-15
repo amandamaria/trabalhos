@@ -80,7 +80,7 @@ public class TelaImagensPorGrupoController extends AbstractController {
 			palavras = getImagensGrupo4();
 			break;
 		default:
-			System.err.println("GRUPO INVï¿½LIDO");
+			System.err.println("GRUPO INVÁLIDO");
 			break;
 		}
 	}
@@ -146,8 +146,8 @@ public class TelaImagensPorGrupoController extends AbstractController {
 		return getPalavrarPorGrupo(GrupoPalavrasUtil.GRUPO_4, GrupoPalavrasUtil.IMAGENS_GRUPO_4, GrupoPalavrasUtil.AUDIOS_GRUPO_4);
 	}
 	
-	private List<Palavra> getPalavrarPorGrupo(int grupo1, String[] imagensGrupo1, String[] audiosGrupo1) {
-		List<Palavra> palavrasGrupo1 = palavraDAO.buscarPalavrasPorGrupo(grupo1);
+	private List<Palavra> getPalavrarPorGrupo(int grupo, String[] imagensGrupo1, String[] audiosGrupo1) {
+		List<Palavra> palavrasGrupo1 = palavraDAO.buscarPalavrasPorGrupo(grupo);
 		for (int i = 0; i < GrupoPalavrasUtil.QTD_IMAGENS_POR_GRUPO; i++) {
 			palavrasGrupo1.get(i).setMnemonicImagePath(imagensGrupo1[i]);
 			palavrasGrupo1.get(i).setMnemonicAudioPath(audiosGrupo1[i]);

@@ -17,7 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class TelaMenuJogoController extends AbstractController {
+public class TelaMenuJogoController extends TelaJogoController {
 	
 	private static final String ESTRELA_CINZA_PATH = "/resources/template/tela5/starcinza.png";
 	private static final String ESTRELA_AMARELA_PATH = "/resources/template/tela5/staramarela.png";
@@ -61,11 +61,12 @@ public class TelaMenuJogoController extends AbstractController {
     
     @FXML
     void reiniciarJogo(ActionEvent event) {
+    	this.palavraNaoConcluida = true;
     	irParaTelaDoJogo();
     	fecharEstaJanela();
     }
 
-    private void fecharEstaJanela() {
+    private void fecharEstaJanela() {    	
 		this.getStage().close();
 	}
 
@@ -122,7 +123,7 @@ public class TelaMenuJogoController extends AbstractController {
 	
 	public void initLayout() {
 		pane.getStyleClass().add("telaMenuJogo");
-		btnContinuar.setDisable(!TelaJogoController.palavraNaoConcluida);
+		btnContinuar.setDisable(!palavraNaoConcluida);
 		popularEstrelas();
 		mudarLabelTempo();
 	}

@@ -12,12 +12,58 @@
 		<version>9.1-901-1.jdbc4</version>
 	</dependency>
 	
-	<!-- Hibernate -->
+ 	<dependency>
+	    <groupId>org.hsqldb</groupId>
+	    <artifactId>hsqldb</artifactId>
+	    <version>2.3.4</version>
+	</dependency>
 	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-core</artifactId>
-		<version>5.0.0.CR4</version>
-	</dependency>	
+	    <groupId>com.h2database</groupId>
+	    <artifactId>h2</artifactId>
+	    <version>1.4.193</version>
+	</dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <!-- for JPA, use hibernate-entitymanager instead of hibernate-core -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <!-- optional -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-osgi</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-envers</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-c3p0</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-proxool</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-infinispan</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-ehcache</artifactId>
+        <version>4.3.6.Final</version>
+    </dependency>
   </dependencies>
   
   <build>
