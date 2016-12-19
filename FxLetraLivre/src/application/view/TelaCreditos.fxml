@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.controller.TelaCreditosController">
-<children><VBox fx:id="boxAutores" alignment="TOP_CENTER" layoutX="356.0" layoutY="206.0" prefHeight="273.0" prefWidth="655.0" spacing="10.0">
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaCreditosController">
+<children><VBox fx:id="boxAutores" alignment="TOP_CENTER" layoutX="356.0" layoutY="171.0" prefHeight="273.0" prefWidth="655.0" spacing="10.0">
 <children><Label fx:id="lbTitulo" alignment="TOP_CENTER" text="CRÉDITOS" textFill="WHITESMOKE">
 <font>
 <Font size="30.0" />

@@ -1,7 +1,6 @@
 package application.controller;
 
 import java.net.URL;
-import java.util.Timer;
 
 import application.Main;
 import application.dominio.dao.PalavraConcluidaDAO;
@@ -10,14 +9,16 @@ import application.model.PalavraConcluida;
 import application.util.ApplicationUtil;
 import arq.controller.AbstractController;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.WindowEvent;
 
-public class TelaMenuJogoController extends TelaJogoController {
+public class TelaMenuJogoController extends AbstractController {
 	
 	private static final String ESTRELA_CINZA_PATH = "/resources/template/tela5/starcinza.png";
 	private static final String ESTRELA_AMARELA_PATH = "/resources/template/tela5/staramarela.png";
@@ -61,7 +62,6 @@ public class TelaMenuJogoController extends TelaJogoController {
     
     @FXML
     void reiniciarJogo(ActionEvent event) {
-    	this.palavraNaoConcluida = true;
     	irParaTelaDoJogo();
     	fecharEstaJanela();
     }
@@ -123,7 +123,7 @@ public class TelaMenuJogoController extends TelaJogoController {
 	
 	public void initLayout() {
 		pane.getStyleClass().add("telaMenuJogo");
-		btnContinuar.setDisable(!palavraNaoConcluida);
+		btnContinuar.setDisable(!TelaJogoController.palavraNaoConcluida);
 		popularEstrelas();
 		mudarLabelTempo();
 	}

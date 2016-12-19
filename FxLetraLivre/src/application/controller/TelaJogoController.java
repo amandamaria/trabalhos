@@ -2,6 +2,7 @@ package application.controller;
 
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.Timer;
 
 import application.Main;
@@ -68,7 +69,7 @@ public class TelaJogoController extends AbstractController {
     
     public static Thread threadRelegio;
     
-    protected boolean palavraNaoConcluida;
+    public static boolean palavraNaoConcluida;
     
     private int tempoGastoEmSegundos;
     
@@ -82,14 +83,14 @@ public class TelaJogoController extends AbstractController {
 
     @FXML
     void exibirAjuda(ActionEvent event) {    	
-    	getMensagemAlerta().showMensagemAjuda("Digite a palavra referente ‡ figura.\nClique no bot„o de som para ouvir a palavra novamente.");    	
+    	getMensagemAlerta().showMensagemAjuda("Digite a palavra referente √† figura.\nClique no bot√£o de som para ouvir a palavra novamente.");    	
     }
     
     @FXML
     void pausarJogo(ActionEvent event) {    	
     	try {
     		stageMenu = new Stage();
-			popupMenuJogo.start(stageMenu);
+			popupMenuJogo.start(stageMenu);			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -127,7 +128,7 @@ public class TelaJogoController extends AbstractController {
 	@Override
 	public void initLayout() {
 		pane.getStyleClass().add("telaJogo");
-		txtPalavra.setFont(ApplicationUtil.getFontCaviarDreams(20));		
+		txtPalavra.setFont(ApplicationUtil.getFontCaviarDreams(24));		
 		carregarImagem();
 		reproduzirAudio();
 	}

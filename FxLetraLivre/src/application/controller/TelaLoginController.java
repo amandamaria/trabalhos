@@ -56,7 +56,7 @@ public class TelaLoginController extends AbstractController {
     void avancar(ActionEvent event) {
     	if(verificarNome() && verificarAvatar()) {
     		if(verificarExistenciaDoNome()) {
-    			if(getMensagemAlerta().showMensagemOpcoes("Já exite algém com esse nome.")) {
+    			if(getMensagemAlerta().showMensagemOpcoes("JÃ¡ existe alguÃ©m com esse nome.")) {
     				getUsuarioLogado().setUsuario(usuario);
     				atualizarAvatar();
     				irParaTelaDeGrupos();

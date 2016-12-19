@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #b2bbc4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaJogoController">
+<AnchorPane fx:id="pane" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-image: url(&quot;/resources/template/tela6/background.png&quot;);;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.TelaJogoController">
 <children>
 <VBox alignment="CENTER" layoutX="234.0" layoutY="112.0" prefHeight="469.0" prefWidth="602.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50;">
 <children><ImageView fx:id="imagem" fitHeight="150.0" fitWidth="200.0" layoutX="201.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
@@ -23,11 +23,11 @@
 </children>
 <padding>
 <Insets top="10.0" />
-</padding></VBox><Button fx:id="btnAjuda" layoutX="1133.0" layoutY="27.0" mnemonicParsing="false" onAction="#exibirAjuda" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnPause" layoutX="1038.0" layoutY="27.0" mnemonicParsing="false" onAction="#pausarJogo" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnReplay" layoutX="766.0" layoutY="27.0" mnemonicParsing="false" onAction="#repetirAudio" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnVoltar" layoutX="179.0" layoutY="32.0" mnemonicParsing="false" onAction="#voltar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><HBox alignment="CENTER" layoutX="415.0" layoutY="28.0" prefHeight="70.0" prefWidth="279.0" spacing="15.0">
+</padding></VBox><Button fx:id="btnAjuda" layoutX="1133.0" layoutY="27.0" mnemonicParsing="false" onAction="#exibirAjuda" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnPause" layoutX="1038.0" layoutY="27.0" mnemonicParsing="false" onAction="#pausarJogo" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnReplay" layoutX="766.0" layoutY="27.0" mnemonicParsing="false" onAction="#repetirAudio" prefHeight="70.0" prefWidth="70.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><Button fx:id="btnVoltar" layoutX="179.0" layoutY="32.0" mnemonicParsing="false" onAction="#voltar" prefHeight="61.0" prefWidth="184.0" style="-fx-background-radius: 50; -fx-background-insets: 0;" /><HBox alignment="CENTER" layoutX="415.0" layoutY="28.0" prefHeight="61.0" prefWidth="293.0" spacing="15.0" style="-fx-border-color: #f1a200; -fx-border-width: 4px; -fx-border-radius: 50;">
 <children><ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" smooth="false">
 <image>
 <Image url="@../../resources/template/tela6/icontimer.png" />
-</image></ImageView><Label fx:id="lbTempo" text="00:00:00" textFill="#313f33">
+</image></ImageView><Label fx:id="lbTempo" text="00:00:00" textFill="#f1a200">
 <font>
 <Font size="30.0" />
 </font></Label>

@@ -46,15 +46,25 @@ public class TelaCreditosController extends AbstractController {
 	}
 
 	private void popularInformacoesDosAutores() {
-		String[] sonoplasta = {"Isis Ramona", "Sonoplasta / Designer"};
-		String[] desenvolvedora1 = {"Amanda Maria", "Desenvolvedora / Animadora"};
-		String[] desenvolvedora2 = {"Maria Clara", "Desenvolvedora / Animadora"};
+		String[] sonoplasta = {"Isis Ramona da Cunha", "Sonoplasta / Designer"};
+		String[] desenvolvedora1 = {"Amanda Maria Oliveira", "Desenvolvedora / Animadora"};
+		String[] desenvolvedora2 = {"Maria Clara Pereira", "Desenvolvedora / Animadora"};
 		String[] colaborador = {"Samuel Dantas", "Colaborador"};
+		String[] colaboradorVersao1_1 = {"João Batista Carvalho Nunes", "Letra Livre Versão 1"};
+		String[] colaboradorVersao1_2 = {"José Veríssimo do Nascimento Filho", "Letra Livre Versão 1"};
+		String[] colaboradorVersao1_3 = {"Maria Lucimara Rodrigues da Silva", "Letra Livre Versão 1"};
+		String[] colaboradorVersao1_4 = {"Dennys Leite Maia", "Letra Livre Versão 1"};
+		String[] colaboradorVersao1_5 = {"Joserlene Lima Pinheiro", "Letra Livre Versão 1"};
 		
-		informacaoDosAutores.add(sonoplasta);
 		informacaoDosAutores.add(desenvolvedora1);
+		informacaoDosAutores.add(sonoplasta);
 		informacaoDosAutores.add(desenvolvedora2);	
-		informacaoDosAutores.add(colaborador);	
+		informacaoDosAutores.add(colaborador);
+		informacaoDosAutores.add(colaboradorVersao1_1);
+		informacaoDosAutores.add(colaboradorVersao1_2);
+		informacaoDosAutores.add(colaboradorVersao1_3);	
+		informacaoDosAutores.add(colaboradorVersao1_4);
+		informacaoDosAutores.add(colaboradorVersao1_5);	
 	}
 
 	@Override
@@ -69,7 +79,7 @@ public class TelaCreditosController extends AbstractController {
 		int FUNCAO = 1;
 		for (String[] strings : informacaoDosAutores) {
 			Label label = new Label(strings[NOME].concat(" - ").concat(strings[FUNCAO]));
-			label.setFont(ApplicationUtil.getFontCaviarDreams(22));
+			label.setFont(ApplicationUtil.getFontCaviarDreams(18));
 			label.setTextFill(Paint.valueOf("#f5f5f5"));
 			boxAutores.getChildren().add(label);
 		}
