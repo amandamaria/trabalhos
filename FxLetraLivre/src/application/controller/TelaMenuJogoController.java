@@ -66,8 +66,10 @@ public class TelaMenuJogoController extends AbstractController {
     	fecharEstaJanela();
     }
 
-    private void fecharEstaJanela() {    	
-		this.getStage().close();
+    private void fecharEstaJanela() {   
+    	System.out.println("Retomando cronômetro do jogo.");
+		TelaJogoController.threadRelegio.resume();;	
+		this.getStage().close();		
 	}
 
 	private void irParaTelaDoJogo() {

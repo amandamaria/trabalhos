@@ -57,7 +57,7 @@
 }
 
 .telaGrupoImagens #btnVoltar {
-	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+	-fx-background-image: url("/resources/template/tela3/btnvoltar.png");
 }
 
 .telaGrupoImagens #btnAjuda {
@@ -75,7 +75,7 @@
 }
 
 .telaSelecaoImagem #btnVoltar {
-	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+	-fx-background-image: url("/resources/template/tela3/btnvoltar.png");
 }
 
 .telaSelecaoImagem #btnAjuda {
@@ -97,7 +97,7 @@
 }
 
 .telaJogo #btnVoltar {
-	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+	-fx-background-image: url("/resources/template/tela3/btnvoltar.png");
 }
 
 /* Tela Menu Jogo */
@@ -126,7 +126,7 @@
 }
 
 .telaCreditos #btnVoltar {
-	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+	-fx-background-image: url("/resources/template/tela3/btnvoltar.png");
 }
 
 /* Tela de ranking */
@@ -136,5 +136,5 @@
 }
 
 .telaRanking #btnVoltar {
-	-fx-background-image: url("/resources/template/tela3/btnVoltar.png");
+	-fx-background-image: url("/resources/template/tela3/btnvoltar.png");
 }
