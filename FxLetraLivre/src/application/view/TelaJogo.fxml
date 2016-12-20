@@ -12,7 +12,7 @@
 <VBox alignment="CENTER" layoutX="234.0" layoutY="112.0" prefHeight="469.0" prefWidth="602.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50;">
 <children><ImageView fx:id="imagem" fitHeight="150.0" fitWidth="200.0" layoutX="201.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
 </children>
-</VBox><TextField fx:id="txtPalavra" alignment="CENTER" layoutX="234.0" layoutY="602.0" prefHeight="60.0" prefWidth="602.0" promptText="DIGITE AQUI" style="-fx-background-radius: 50; -fx-background-color: #f5f5f5; -fx-background-insets: 0;">
+</VBox><TextField fx:id="txtPalavra" alignment="CENTER" layoutX="234.0" layoutY="602.0" prefHeight="60.0" prefWidth="602.0" promptText="DIGITE AQUI" style="-fx-background-radius: 50; -fx-background-color: #f5f5f5; -fx-border-color: #e6e6e6; -fx-border-width: 4px; -fx-border-radius: 50;">
 <font>
 <Font name="Arial" size="24.0" />
 </font></TextField><VBox alignment="CENTER" layoutX="865.0" layoutY="112.0" prefHeight="551.0" prefWidth="268.0" spacing="10.0" style="-fx-background-color: #f5f5f5; -fx-background-radius: 50;">

@@ -83,7 +83,7 @@ public class TelaJogoController extends AbstractController {
 
     @FXML
     void exibirAjuda(ActionEvent event) {    	
-    	getMensagemAlerta().showMensagemAjuda("Digite a palavra referente à figura.\nClique no botão de som para ouvir a palavra novamente.");    	
+    	getMensagemAlerta().showMensagemAjuda("Digite a palavra referente à figura e pressione ENTER para verificar.\nClique no botão de som para ouvir a palavra novamente.");    	
     }
     
     @FXML
@@ -128,7 +128,8 @@ public class TelaJogoController extends AbstractController {
 	@Override
 	public void initLayout() {
 		pane.getStyleClass().add("telaJogo");
-		txtPalavra.setFont(ApplicationUtil.getFontCaviarDreams(24));		
+		txtPalavra.setFont(ApplicationUtil.getFontCaviarDreams(24));
+		txtPalavra.setFocusTraversable(false);
 		carregarImagem();
 		reproduzirAudio();
 	}
